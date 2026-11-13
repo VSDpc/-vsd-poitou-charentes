@@ -1,0 +1,298 @@
+# Back-office Pages CMS — https://app.pagescms.org
+media:
+  input: src/media
+  output: /media
+
+content:
+  # ---------- ACTUALITÉS ----------
+  - name: actualites
+    label: Actualités
+    type: collection
+    path: src/actualites
+    filename: "{year}-{month}-{day}-{primary}.md"
+    exclude: [actualites.11tydata.js]
+    view:
+      fields: [title, date, brouillon]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: Titre
+        type: string
+        required: true
+      - name: date
+        label: Date de publication
+        type: date
+        required: true
+      - name: image
+        label: Image principale
+        type: image
+      - name: resume
+        label: Résumé (affiché sur les cartes)
+        type: text
+      - name: brouillon
+        label: Brouillon (cocher pour ne pas publier)
+        type: boolean
+        default: false
+      - name: body
+        label: Texte de l'article
+        type: rich-text
+        options:
+          format: markdown
+
+  # ---------- PAGES ----------
+  - name: pages
+    label: Pages du site
+    type: collection
+    path: src/pages
+    exclude: [pages.11tydata.js]
+    view:
+      fields: [title]
+      primary: title
+      sort: [ordre]
+      default:
+        sort: ordre
+        order: asc
+    filename: "{primary}.md"
+    operations:
+      create: true
+      delete: true
+      rename: false
+    fields:
+      - name: title
+        label: Titre de la page
+        type: string
+        required: true
+      - name: menu
+        label: Afficher dans le menu principal (pour une nouvelle page)
+        type: boolean
+        default: false
+      - name: titre_menu
+        label: Titre court dans le menu (facultatif)
+        type: string
+      - name: intro
+        label: Phrase d'introduction (bandeau du haut)
+        type: text
+      - name: image
+        label: Image du bandeau
+        type: image
+      - name: ordre
+        label: Position (dans la liste et dans le menu, ex. 6)
+        type: number
+      - name: body
+        label: Contenu de la page
+        type: rich-text
+        options:
+          format: markdown
+
+  # ---------- PAGE D'ACCUEIL ----------
+  - name: accueil
+    label: Page d'accueil
+    type: file
+    path: src/_data/accueil.json
+    format: json
+    fields:
+      - name: hero_titre
+        label: Grand titre (mettre *entre étoiles* pour l'italique)
+        type: string
+      - name: hero_texte
+        label: Phrase sous le titre
+        type: text
+      - name: hero_image
+        label: Photo de fond
+        type: image
+      - name: missions_titre
+        label: Titre de la liste des missions
+        type: string
+      - name: missions
+        label: Missions (liste à puces jaunes)
+        type: string
+        list: true
+      - name: appel_titre
+        label: Bloc « personnes en deuil » — titre
+        type: string
+      - name: appel_texte
+        label: Bloc « personnes en deuil » — texte
+        type: text
+      - name: pro_titre
+        label: Bloc « bénévoles et professionnels » — titre
+        type: string
+      - name: pro_texte
+        label: Bloc « bénévoles et professionnels » — texte
+        type: text
+      - name: citation
+        label: Citation
+        type: text
+      - name: citation_auteur
+        label: Auteur de la citation
+        type: string
+
+  # ---------- NOS ACTIONS ----------
+  - name: actions
+    label: Nos actions
+    type: file
+    path: src/_data/actions.json
+    format: json
+    list: true
+    fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Description
+        type: text
+      - name: lien
+        label: Lien (facultatif, ex. /se-faire-accompagner/#groupes)
+        type: string
+      - name: icone
+        label: Pictogramme
+        type: select
+        options:
+          values: [telephone, personne, groupe, cafe, conference, formation]
+
+  # ---------- GROUPES D'ENTRAIDE ----------
+  - name: groupes
+    label: Groupes d'entraide
+    type: file
+    path: src/_data/groupes.json
+    format: json
+    list: true
+    fields:
+      - name: ville
+        label: Ville
+        type: string
+      - name: theme
+        label: Thème (ex. Adultes — tous deuils, Parents endeuillés)
+        type: string
+      - name: departement
+        label: Département
+        type: string
+      - name: infos
+        label: Informations pratiques
+        type: text
+      - name: statut
+        label: Statut
+        type: select
+        options:
+          values: [actif, projet]
+
+  # ---------- PROJETS ----------
+  - name: projets
+    label: Nos projets
+    type: file
+    path: src/_data/projets.json
+    format: json
+    list: true
+    fields:
+      - name: titre
+        label: Titre
+        type: string
+      - name: texte
+        label: Description
+        type: text
+
+  # ---------- PARTENAIRES ----------
+  - name: partenaires
+    label: Partenaires
+    type: file
+    path: src/_data/partenaires.json
+    format: json
+    list: true
+    fields:
+      - name: nom
+        label: Nom
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: url
+        label: Adresse du site (https://…)
+        type: string
+      - name: logo
+        label: Logo (facultatif)
+        type: image
+
+  # ---------- FINANCEURS ----------
+  - name: financeurs
+    label: Soutiens financiers
+    type: file
+    path: src/_data/financeurs.json
+    format: json
+    fields:
+      - name: texte
+        label: Phrase d'introduction
+        type: text
+      - name: liste
+        label: Organismes
+        type: object
+        list: true
+        fields:
+          - { name: nom, label: Nom, type: string }
+          - { name: description, label: Description courte, type: string }
+          - { name: url, label: Adresse du site, type: string }
+          - { name: logo, label: Logo (facultatif), type: image }
+
+  # ---------- ÉQUIPE ----------
+  - name: equipe
+    label: L'équipe
+    type: file
+    path: src/_data/equipe.json
+    format: json
+    fields:
+      - name: bureau
+        label: Le bureau
+        type: object
+        list: true
+        fields:
+          - { name: nom, label: Nom, type: string }
+          - { name: fonction, label: Fonction, type: string }
+          - { name: profession, label: Profession, type: string }
+      - name: ca
+        label: Conseil d'administration
+        type: object
+        list: true
+        fields:
+          - { name: nom, label: Nom, type: string }
+          - { name: fonction, label: Fonction, type: string }
+          - { name: profession, label: Profession, type: string }
+
+  # ---------- VALEURS ----------
+  - name: valeurs
+    label: Valeurs de la charte
+    type: file
+    path: src/_data/valeurs.json
+    format: json
+    list: true
+    fields:
+      - name: titre
+        label: Valeur
+        type: string
+      - name: texte
+        label: Explication
+        type: text
+
+  # ---------- COORDONNÉES ----------
+  - name: site
+    label: Coordonnées et liens
+    type: file
+    path: src/_data/site.json
+    format: json
+    fields:
+      - { name: nom, label: Nom de l'association, type: string }
+      - { name: slogan, label: Slogan (barre du haut), type: string }
+      - { name: description, label: Description pour Google, type: text }
+      - { name: telephone, label: Téléphone, type: string }
+      - { name: email, label: E-mail, type: string }
+      - { name: adresse, label: Adresse postale, type: string }
+      - { name: facebook, label: Page Facebook (adresse complète), type: string }
+      - { name: linkedin, label: Page LinkedIn (adresse complète — laisser vide pour masquer l'icône), type: string }
+      - { name: adhesion_url, label: Lien HelloAsso — adhésion, type: string }
+      - { name: don_url, label: Lien HelloAsso — dons, type: string }
+      - { name: federation_url, label: Site de la Fédération, type: string }
+      - { name: rappeo_url, label: Site de RAPPEO 17, type: string }
+      - { name: rna, label: N° RNA, type: string }
+      - { name: siret, label: SIRET, type: string }
+      - { name: contact_intro, label: Texte d'introduction de la page Contact, type: text }
