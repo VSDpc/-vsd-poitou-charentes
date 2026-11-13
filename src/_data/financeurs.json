@@ -1,0 +1,23 @@
+{
+  "texte": "Vivre Son Deuil Poitou-Charentes remercie les organismes qui lui apportent leur soutien financier et permettent de maintenir la gratuité de toutes ses actions pour les personnes endeuillées.",
+  "liste": [
+    {
+      "nom": "CAF de la Charente-Maritime",
+      "description": "Caisse d'allocations familiales",
+      "url": "https://caf.fr/professionnels/nous-connaitre/caf-de-la-charente-maritime/qui-sommes-nous",
+      "logo": "/media/logo-caf-17.jpg"
+    },
+    {
+      "nom": "MSA des Charentes",
+      "description": "Mutualité sociale agricole",
+      "url": "https://charentes.msa.fr/",
+      "logo": "/media/logo-msa-charentes.jpg"
+    },
+    {
+      "nom": "ARS Nouvelle-Aquitaine",
+      "description": "Agence régionale de santé",
+      "url": "https://www.nouvelle-aquitaine.ars.sante.fr/",
+      "logo": "/media/logo-ars-nouvelle-aquitaine.jpg"
+    }
+  ]
+}

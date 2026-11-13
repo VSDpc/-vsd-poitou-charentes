@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Raccourci vers le back-office : votre-site.fr/admin
+[[redirects]]
+  from = "/admin"
+  to = "https://app.pagescms.org"
+  status = 302

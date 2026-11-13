@@ -1,0 +1,20 @@
+{
+  "bureau": [
+    { "nom": "Martine Piton", "fonction": "Présidente", "profession": "Psychologue retraitée" },
+    { "nom": "Jean-Jacques Chavagnat", "fonction": "Vice-Président", "profession": "Psychiatre" },
+    { "nom": "Michel Montheil", "fonction": "Vice-Président", "profession": "Psychologue" },
+    { "nom": "Pauline Victor", "fonction": "Secrétaire", "profession": "Psychologue" },
+    { "nom": "Gwenaëlle Bouvet", "fonction": "Trésorière", "profession": "Psychologue" },
+    { "nom": "Frédéric Pelletant", "fonction": "Trésorier adjoint", "profession": "Chargé d'étude en sécurité routière" }
+  ],
+  "ca": [
+    { "nom": "Claire-Marie Bigeaye", "fonction": "Chargée de communication", "profession": "Biographe" },
+    { "nom": "Claire-Anne Batard", "fonction": "Administratrice", "profession": "Enseignante" },
+    { "nom": "Martine Cothias-Freyche", "fonction": "Administratrice", "profession": "Retraitée" },
+    { "nom": "Carole Giacobi", "fonction": "Administratrice", "profession": "Psychiatre" },
+    { "nom": "Marie-Noëlle Chaban", "fonction": "Administratrice", "profession": "Thérapeute" },
+    { "nom": "Laurent Yver", "fonction": "Administrateur", "profession": "Médecin retraité" },
+    { "nom": "Anne-Marie Texier", "fonction": "Administratrice", "profession": "Instructrice MBSR" },
+    { "nom": "Laurence Picque", "fonction": "Administratrice", "profession": "Psychothérapeute" }
+  ]
+}

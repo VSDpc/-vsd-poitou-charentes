@@ -1,0 +1,52 @@
+---
+layout: base.njk
+title: Contact
+permalink: /contact/
+---
+<section class="bandeau bandeau--simple">
+  <div class="wrap">
+    <h1>Nous contacter</h1>
+    <p class="bandeau__intro">{{ site.contact_intro }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap contact">
+    <form class="formulaire" name="contact" method="POST" action="/merci/" data-netlify="true" netlify-honeypot="site-web">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="cache"><label>Ne pas remplir : <input name="site-web"></label></p>
+      <div class="champs-2">
+        <p><label for="nom">Nom et prénom <span aria-hidden="true">*</span></label><input id="nom" name="nom" required autocomplete="name"></p>
+        <p><label for="tel">Téléphone</label><input id="tel" name="telephone" type="tel" autocomplete="tel"></p>
+      </div>
+      <p><label for="email">Adresse e-mail <span aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autocomplete="email"></p>
+      <p><label for="objet">Votre demande concerne</label>
+        <select id="objet" name="objet">
+          <option>Je traverse un deuil et souhaite être accompagné(e)</option>
+          <option>J'accompagne une personne endeuillée</option>
+          <option>Je souhaite devenir bénévole</option>
+          <option>Je suis un professionnel (sensibilisation, partenariat)</option>
+          <option>Mécénat, don, adhésion</option>
+          <option>Presse</option>
+          <option>Autre</option>
+        </select></p>
+      <p><label for="message">Votre message <span aria-hidden="true">*</span></label><textarea id="message" name="message" rows="7" required></textarea></p>
+      <p class="consent"><input id="rgpd" name="consentement" type="checkbox" value="oui" required><label for="rgpd">J'accepte que mes données soient utilisées uniquement pour répondre à ma demande (voir les <a href="/mentions-legales/">mentions légales</a>). *</label></p>
+      <p><button class="btn" type="submit">Envoyer le message</button></p>
+      <p class="formulaire__note" role="status" hidden></p>
+    </form>
+    <aside class="contact__infos">
+      <div class="carte">
+        <h2>Coordonnées</h2>
+        <p><a class="contact__tel" href="{{ site.telephone | tel }}">{% include "partials/icone-tel.njk" %} {{ site.telephone }}</a></p>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+        <p>{{ site.adresse }}</p>
+        <p class="contact__suivre">Suivez-nous {% include "partials/reseaux.njk" %}</p>
+      </div>
+      <div class="carte carte--alerte">
+        <h2>Besoin d'aide immédiate ?</h2>
+        <p>Notre association n'est pas un service d'urgence. Si vous êtes en détresse ou pensez au suicide, appelez le <strong><a href="tel:3114">3114</a></strong> (24 h/24, gratuit) ou <strong><a href="tel:15">le 15</a></strong>.</p>
+        <p>SOS Amitié vous écoute aussi jour et nuit au <a href="tel:0972394050">09 72 39 40 50</a>.</p>
+      </div>
+    </aside>
+  </div>
+</section>

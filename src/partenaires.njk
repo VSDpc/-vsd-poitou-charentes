@@ -1,0 +1,47 @@
+---
+layout: base.njk
+title: Nos partenaires
+intro: Vivre Son Deuil Poitou-Charentes travaille en réseau avec des associations locales et nationales engagées auprès des personnes endeuillées et en fin de vie.
+permalink: /partenaires/
+---
+<section class="bandeau bandeau--simple">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    <p class="bandeau__intro">{{ intro }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap grille grille--2">
+    {% for p in partenaires %}
+    <article class="carte partenaire">
+      <div class="partenaire__logo">{% if p.logo %}<img src="{{ p.logo }}" alt="Logo {{ p.nom }}">{% else %}<span>{{ p.nom | truncate(14, true, "") }}</span>{% endif %}</div>
+      <div>
+        <h2>{{ p.nom }}</h2>
+        <p>{{ p.description }}</p>
+        {% if p.url %}<a class="lien-fort" href="{{ p.url }}">Visiter le site →</a>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<section class="section section--lavande">
+  <div class="wrap">
+    <h2 class="titre centre">Ils nous soutiennent financièrement</h2>
+    <p class="chapeau centre">{{ financeurs.texte }}</p>
+    <div class="grille grille--3 financeurs">
+      {% for f in financeurs.liste %}
+      <a class="financeur"{% if f.url %} href="{{ f.url }}"{% endif %}>
+        {% if f.logo %}<img src="{{ f.logo }}" alt="{{ f.nom }}">{% else %}<strong>{{ f.nom }}</strong>{% endif %}
+        {% if f.description %}<span>{{ f.description }}</span>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap centre">
+    <h2 class="titre">Devenir partenaire</h2>
+    <p class="chapeau centre">Association, institution, entreprise : vous souhaitez travailler avec nous ou soutenir nos actions ?</p>
+    <p class="hero__cta" style="justify-content:center"><a class="btn" href="/contact/">Nous contacter</a> <a class="btn btn--contour" href="/nous-soutenir/">Nous soutenir</a></p>
+  </div>
+</section>

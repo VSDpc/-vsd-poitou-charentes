@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: Actualités
+intro: Conférences, ciné-débats, groupes d'entraide, projets… La vie de l'association en Poitou-Charentes.
+permalink: /actualites/
+---
+<section class="bandeau bandeau--simple">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    <p class="bandeau__intro">{{ intro }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="grille grille--3">
+      {% for actu in collections.actualites %}{% include "partials/carte-actu.njk" %}{% else %}<p>Aucune actualité pour le moment.</p>{% endfor %}
+    </div>
+    <p class="centre suivre">Suivez aussi l'association sur les réseaux {% include "partials/reseaux.njk" %} et les actualités de la <a href="{{ site.federation_url }}">Fédération Vivre Son Deuil</a>.</p>
+  </div>
+</section>

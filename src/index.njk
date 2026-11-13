@@ -1,0 +1,102 @@
+---
+layout: base.njk
+title: Accueil
+permalink: /
+---
+<section class="hero" style="background-image:url('{{ accueil.hero_image }}')">
+  <div class="wrap hero__in">
+    <h1>{{ accueil.hero_titre | mdInline | safe }}</h1>
+    <p class="hero__texte">{{ accueil.hero_texte }}</p>
+    <p class="hero__sous">{{ accueil.missions_titre }}</p>
+    <ul class="checks">
+      {% for m in accueil.missions %}<li>{% include "partials/icone-check.njk" %}<span>{{ m }}</span></li>{% endfor %}
+    </ul>
+    <div class="hero__cta">
+      <a class="btn btn--jaune" href="/se-faire-accompagner/">Se faire accompagner</a>
+      <a class="btn btn--blanc" href="/association/">Découvrir l'association</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap grille grille--2 publics">
+    <div class="public public--deuil">
+      <h2>{{ accueil.appel_titre }}</h2>
+      <p>{{ accueil.appel_texte }}</p>
+      <p class="public__tel"><a href="{{ site.telephone | tel }}">{% include "partials/icone-tel.njk" %} {{ site.telephone }}</a></p>
+      <a class="btn" href="/se-faire-accompagner/">Nos propositions d'accompagnement</a>
+    </div>
+    <div class="public public--pro">
+      <h2>{{ accueil.pro_titre }}</h2>
+      <p>{{ accueil.pro_texte }}</p>
+      <a class="btn btn--contour" href="/contact/">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--lavande">
+  <div class="wrap">
+    <h2 class="titre centre">Nos actions en Poitou-Charentes</h2>
+    <p class="chapeau centre">Gratuites, confidentielles, assurées par des bénévoles formés à l'écoute, en lien avec des professionnels.</p>
+    <div class="grille grille--3">
+      {% for a in actions %}{% set icone = a.icone %}
+      <article class="carte carte--action">
+        {% include "partials/icone-action.njk" %}
+        <h3>{% if a.lien %}<a class="carte__lien" href="{{ a.lien }}">{{ a.titre }}</a>{% else %}{{ a.titre }}{% endif %}</h3>
+        <p>{{ a.texte }}</p>
+        {% if a.lien %}<p><span class="lien-fort" aria-hidden="true">Voir les groupes →</span></p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="entete-section">
+      <h2 class="titre">Les actualités de l'association</h2>
+      <a class="lien-fort" href="/actualites/">Toutes les actualités →</a>
+    </div>
+    <div class="grille grille--3">
+      {% for actu in collections.actualites | limit(3) %}{% include "partials/carte-actu.njk" %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--marine">
+  <div class="wrap rappeo">
+    <div>
+      <p class="surtitre">En Charente-Maritime</p>
+      <h2>RAPPEO 17, un réseau de psychologues pour les personnes endeuillées et les orphelins</h2>
+      <p>Coordonné par notre association, le réseau propose un soutien psychologique individuel ou familial, en partenariat avec la CPAM, la CAF et la MSA de Charente-Maritime.</p>
+      <div class="hero__cta">
+        <a class="btn btn--jaune" href="/rappeo-17/">En savoir plus</a>
+        <a class="btn btn--blanc" href="{{ site.rappeo_url }}">Site de RAPPEO 17</a>
+      </div>
+    </div>
+    <img src="/media/affiche-congres-2024.jpg" alt="Affiche du congrès « Deuils en famille ; orphelins d'un parent », La Rochelle, décembre 2024" loading="lazy">
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap citation">
+    <blockquote>
+      <p>« {{ accueil.citation }} »</p>
+      <footer>{{ accueil.citation_auteur }}</footer>
+    </blockquote>
+  </div>
+</section>
+
+<section class="section section--lavande">
+  <div class="wrap">
+    <h2 class="titre centre">Nos partenaires</h2>
+    <ul class="logos">
+      {% for p in partenaires %}<li class="{% if p.logo %}logos__img{% else %}logos__txt{% endif %}">{% if p.url %}<a href="{{ p.url }}" title="{{ p.nom }}">{% endif %}{% if p.logo %}<img src="{{ p.logo }}" alt="{{ p.nom }}">{% else %}{{ p.nom }}{% endif %}{% if p.url %}</a>{% endif %}</li>{% endfor %}
+    </ul>
+    <p class="soutiens">Avec le soutien financier de</p>
+    <ul class="logos logos--financeurs">
+      {% for f in financeurs.liste %}<li class="{% if f.logo %}logos__img{% else %}logos__txt{% endif %}">{% if f.url %}<a href="{{ f.url }}" title="{{ f.nom }}">{% endif %}{% if f.logo %}<img src="{{ f.logo }}" alt="{{ f.nom }}">{% else %}{{ f.nom }}{% endif %}{% if f.url %}</a>{% endif %}</li>{% endfor %}
+    </ul>
+    <p class="centre"><a class="btn btn--contour" href="/partenaires/">Découvrir nos partenaires</a></p>
+  </div>
+</section>

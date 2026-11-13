@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+<section class="bandeau bandeau--simple">
+  <div class="wrap">
+    <p class="fil"><a href="/actualites/">Actualités</a></p>
+    <h1>{{ title }}</h1>
+    <p class="bandeau__date"><time datetime="{{ page.date | dateIso }}">{{ page.date | dateFr }}</time></p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap article">
+    {% if image %}<img class="article__image" src="{{ image }}" alt="">{% endif %}
+    <div class="prose">
+      {% if resume %}<p class="article__chapeau">{{ resume }}</p>{% endif %}
+      {{ content | safe }}
+    </div>
+    <p><a class="lien-retour" href="/actualites/">← Toutes les actualités</a></p>
+  </div>
+</section>

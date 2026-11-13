@@ -1,0 +1,11 @@
+<article class="actu">
+  <a class="actu__lien" href="{{ actu.url }}">
+    {% if actu.data.image %}<div class="actu__img" style="background-image:url('{{ actu.data.image }}')"></div>{% else %}<div class="actu__img actu__img--vide"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M34 8c8 10 12 22 10 36H20C30 34 34 22 34 8z" fill="#4090C7"/><path d="M8 50c16 5 32 5 48 0" stroke="#E3C445" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div>{% endif %}
+    <div class="actu__corps">
+      <time datetime="{{ actu.date | dateIso }}">{{ actu.date | dateFr }}</time>
+      <h3>{{ actu.data.title }}</h3>
+      {% if actu.data.resume %}<p>{{ actu.data.resume }}</p>{% endif %}
+      <span class="actu__suite">Lire la suite</span>
+    </div>
+  </a>
+</article>
