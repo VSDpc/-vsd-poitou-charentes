@@ -14,7 +14,7 @@ permalink: /partenaires/
   <div class="wrap grille grille--2">
     {% for p in partenaires %}
     <article class="carte partenaire">
-      <div class="partenaire__logo">{% if p.logo %}<img src="{{ p.logo }}" alt="Logo {{ p.nom }}">{% else %}<span>{{ p.nom | truncate(14, true, "") }}</span>{% endif %}</div>
+      <div class="partenaire__logo">{% if p.logo %}<img loading="lazy" decoding="async" src="{{ p.logo }}" alt="Logo {{ p.nom }}">{% else %}<span>{{ p.nom | truncate(14, true, "") }}</span>{% endif %}</div>
       <div>
         <h2>{{ p.nom }}</h2>
         <p>{{ p.description }}</p>
@@ -31,7 +31,7 @@ permalink: /partenaires/
     <div class="grille grille--3 financeurs">
       {% for f in financeurs.liste %}
       <a class="financeur"{% if f.url %} href="{{ f.url }}"{% endif %}>
-        {% if f.logo %}<img src="{{ f.logo }}" alt="{{ f.nom }}">{% else %}<strong>{{ f.nom }}</strong>{% endif %}
+        {% if f.logo %}<img loading="lazy" decoding="async" src="{{ f.logo }}" alt="{{ f.nom }}">{% else %}<strong>{{ f.nom }}</strong>{% endif %}
         {% if f.description %}<span>{{ f.description }}</span>{% endif %}
       </a>
       {% endfor %}

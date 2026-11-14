@@ -1,7 +1,7 @@
 ---
 title: Un groupe de parole pour personnes endeuillées à La Rochelle
 date: 2026-10-03
-image: /media/groupe-de-parole.jpg
+image: /media/groupe-de-parole.webp
 resume: Un mercredi par mois, un espace d'écoute, de soutien et de partage pour les adultes endeuillés de La Rochelle et ses alentours. Gratuit.
 brouillon: false
 ---

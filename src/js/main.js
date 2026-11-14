@@ -10,8 +10,8 @@ if (burger && nav) {
   });
 }
 
-// Formulaire : envoi via Netlify Forms (uniquement une fois le site en ligne sur Netlify)
-const form = document.querySelector("form[data-netlify]");
+// Formulaire de contact : envoi via Web3Forms (les messages arrivent par mail)
+const form = document.querySelector("form.formulaire");
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -19,16 +19,17 @@ if (form) {
     const bouton = form.querySelector("button[type=submit]");
     bouton.disabled = true;
     try {
-      const r = await fetch("/", {
+      const r = await fetch(form.action, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(new FormData(form)).toString(),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
       });
-      if (!r.ok) throw new Error(r.status);
-      window.location.href = form.getAttribute("action");
+      const res = await r.json();
+      if (!r.ok || !res.success) throw new Error(res.message || r.status);
+      window.location.href = form.dataset.merci;
     } catch (err) {
       note.hidden = false;
-      note.textContent = "Le message n'a pas pu être envoyé (le formulaire fonctionnera une fois le site en ligne). Vous pouvez nous écrire directement à " + ((document.querySelector('a[href^="mailto:"]')?.getAttribute("href") || "").slice(7) || "l'association") + ".";
+      note.textContent = "Le message n'a pas pu être envoyé. Vous pouvez nous écrire directement à " + ((document.querySelector('a[href^="mailto:"]')?.getAttribute("href") || "").slice(7) || "l'association") + ".";
       bouton.disabled = false;
     }
   });

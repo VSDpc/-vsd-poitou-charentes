@@ -10,7 +10,7 @@ layout: base.njk
 </section>
 <section class="section">
   <div class="wrap article">
-    {% if image %}<img class="article__image" src="{{ image }}" alt="">{% endif %}
+    {% if image %}<img loading="lazy" decoding="async" class="article__image" src="{{ image }}" alt="">{% endif %}
     <div class="prose">
       {% if resume %}<p class="article__chapeau">{{ resume }}</p>{% endif %}
       {{ content | safe }}

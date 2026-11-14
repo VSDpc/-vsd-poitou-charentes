@@ -5,19 +5,19 @@
       "nom": "CAF de la Charente-Maritime",
       "description": "Caisse d'allocations familiales",
       "url": "https://caf.fr/professionnels/nous-connaitre/caf-de-la-charente-maritime/qui-sommes-nous",
-      "logo": "/media/logo-caf-17.jpg"
+      "logo": "/media/logo-caf-17.webp"
     },
     {
       "nom": "MSA des Charentes",
       "description": "Mutualité sociale agricole",
       "url": "https://charentes.msa.fr/",
-      "logo": "/media/logo-msa-charentes.jpg"
+      "logo": "/media/logo-msa-charentes.webp"
     },
     {
       "nom": "ARS Nouvelle-Aquitaine",
       "description": "Agence régionale de santé",
       "url": "https://www.nouvelle-aquitaine.ars.sante.fr/",
-      "logo": "/media/logo-ars-nouvelle-aquitaine.jpg"
+      "logo": "/media/logo-ars-nouvelle-aquitaine.webp"
     }
   ]
 }

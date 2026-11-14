@@ -3,31 +3,31 @@
     "nom": "Fédération Européenne Vivre Son Deuil",
     "description": "La fédération qui regroupe onze associations régionales en France, Suisse et Belgique, dont la nôtre.",
     "url": "https://www.vivre-son-deuil.com/",
-    "logo": "/media/logo-fevsd.jpg"
+    "logo": "/media/logo-fevsd.webp"
   },
   {
     "nom": "RAPPEO 17",
     "description": "Réseau d'Accompagnement Psychologique des Personnes Endeuillées et Orphelins de Charente-Maritime, coordonné par notre association.",
     "url": "https://www.rappeo17.org/rappeo-17/",
-    "logo": "/media/logo-rappeo-17.png"
+    "logo": "/media/logo-rappeo-17.webp"
   },
   {
     "nom": "Or#phelins 17 — RDO 17",
     "description": "Réseau Deuil Orphelins de Charente-Maritime, à l'initiative de RAPPEO 17 et co-organisateur du congrès 2024 « Deuils en famille ; orphelins d'un parent ».",
     "url": "",
-    "logo": "/media/logo-orphelins-17.png"
+    "logo": "/media/logo-orphelins-17.webp"
   },
   {
     "nom": "JPV — Jonathan Pierres Vivantes",
     "description": "Association de parents et de frères et sœurs endeuillés.",
     "url": "https://www.anjpv.fr/",
-    "logo": "/media/logo-jpv.png"
+    "logo": "/media/logo-jpv.webp"
   },
   {
     "nom": "SPAMA",
     "description": "Soins Palliatifs et Accompagnement en Maternité — deuil périnatal.",
     "url": "https://www.spama.asso.fr/",
-    "logo": "/media/logo-spama.png"
+    "logo": "/media/logo-spama.webp"
   },
   {
     "nom": "SOS Amitié La Rochelle",
@@ -39,7 +39,7 @@
     "nom": "JALMALV Poitiers",
     "description": "Jusqu'à La Mort Accompagner La Vie — accompagnement des personnes en fin de vie et de leurs proches.",
     "url": "https://www.jalmalv-federation.fr/",
-    "logo": "/media/logo-jalmalv.png"
+    "logo": "/media/logo-jalmalv.webp"
   },
   {
     "nom": "Dialogue & Solidarité Angoulême",

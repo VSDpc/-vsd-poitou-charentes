@@ -1,7 +1,7 @@
 ---
 title: Se faire accompagner
 intro: Toutes nos actions sont gratuites et ouvertes à toute personne endeuillée de la région, quel que soit le deuil traversé.
-image: /media/groupe-de-parole.jpg
+image: /media/groupe-de-parole.webp
 ordre: 2
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: RAPPEO 17
 intro: Le Réseau d'Accompagnement Psychologique des Personnes Endeuillées et Orphelins de Charente-Maritime, coordonné par Vivre Son Deuil Poitou-Charentes.
-image: /media/cine-debat.jpg
+image: /media/cine-debat.webp
 ordre: 3
 ---
 

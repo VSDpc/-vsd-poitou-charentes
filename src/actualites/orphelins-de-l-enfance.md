@@ -1,7 +1,7 @@
 ---
 title: "Orphelins, orphelines de l'enfance, qu'êtes-vous devenu·e·s ? Un nouveau groupe de parole"
 date: 2026-11-13
-image: ""
+image: /media/cine-debat.webp
 resume: Vous avez perdu un parent dans votre enfance ? À partir de janvier 2027, un groupe de parole réunit à Poitiers (ou à distance) les orphelin·e·s de l'enfance devenu·e·s adultes. Entretiens préalables jusqu'au 27 novembre.
 brouillon: false
 ---

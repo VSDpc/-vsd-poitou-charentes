@@ -2,13 +2,13 @@
 
 Site statique (Eleventy), hébergé gratuitement sur Netlify, modifiable via le back-office gratuit **Pages CMS**.
 
-## Mise en ligne (une seule fois)
+## Mise en ligne (hébergement Cloudflare Pages, gratuit)
 
-1. **GitHub** : créer un compte gratuit sur github.com, puis un dépôt (bouton « New repository », nom : `vsd-poitou-charentes`). Cliquer sur « uploading an existing file » et glisser **tout le contenu** de ce dossier (y compris `.pages.yml` — sur Mac, Cmd+Maj+. affiche les fichiers cachés). Valider avec « Commit changes ».
-2. **Netlify** : créer un compte gratuit sur netlify.com en se connectant avec GitHub → « Add new project » → « Import an existing project » → GitHub → choisir le dépôt. Les réglages sont lus automatiquement (`netlify.toml`). Cliquer sur « Deploy ». Le site est en ligne en 1 à 2 minutes à une adresse du type `xxx.netlify.app` (renommable dans « Project configuration »).
-3. **Formulaire de contact** : dans Netlify → Forms → activer la détection des formulaires (« Enable form detection »), puis relancer un déploiement. Dans Forms → Form notifications → ajouter une notification par e-mail vers l'adresse de l'association. (Les messages du formulaire sont gratuits et illimités.)
-4. **Back-office** : aller sur https://app.pagescms.org, se connecter avec GitHub, installer l'application sur le dépôt, puis ouvrir le dépôt. Tout le contenu apparaît dans le menu de gauche.
-5. **Nom de domaine** (facultatif, environ 10 à 15 € par an) : Netlify → Domain management → Add a domain.
+1. **GitHub** : le code est dans le dépôt `VSDpc/-vsd-poitou-charentes`. Les fichiers dont le nom commence par un point (`.pages.yml`) doivent être créés via « Add file › Create new file », car le glisser-déposer les ignore.
+2. **Cloudflare Pages** : compte gratuit sur dash.cloudflare.com → Workers & Pages → Create → Pages → « Connect to Git » → choisir le dépôt. Réglages : Framework preset « Eleventy » (ou aucun), commande de build `npm run build`, dossier de sortie `_site`. Variable d'environnement conseillée : `NODE_VERSION` = `22`.
+3. **Formulaire de contact** : service Web3Forms (250 messages gratuits par mois). Créer une clé sur web3forms.com avec l'adresse de l'association, puis la coller dans `src/_data/formulaire.json` à la place de `A_REMPLACER`.
+4. **Back-office** : https://app.pagescms.org (connexion GitHub). Raccourci : `/admin` sur le site.
+5. **Nom de domaine** : Cloudflare Pages → projet → Custom domains → « Set up a custom domain ».
 
 ## Modifier le site au quotidien
 
@@ -20,7 +20,7 @@ Sur https://app.pagescms.org (ou `votre-site/admin`) :
 
 Chaque enregistrement met le site à jour automatiquement en une ou deux minutes.
 
-**Attention au quota gratuit de Netlify** : 300 crédits par mois, et chaque mise à jour du site en coûte 15 (soit une vingtaine de mises à jour par mois). Regroupez vos modifications : préparez l'actualité en brouillon, puis publiez-la en une fois.
+Quota gratuit Cloudflare Pages : 500 mises à jour par mois, visites illimitées. Si le quota est atteint, le site reste en ligne ; seules les nouvelles mises à jour attendent le mois suivant.
 
 Pour inviter d'autres membres à modifier le site : Pages CMS → Settings → Collaborators (invitation par e-mail, sans compte GitHub nécessaire).
 

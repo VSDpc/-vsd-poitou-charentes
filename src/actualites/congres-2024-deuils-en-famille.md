@@ -1,7 +1,7 @@
 ---
 title: "Retour sur le Congrès 2024 « Deuils en famille ; orphelins d'un parent »"
 date: 2024-12-10
-image: /media/affiche-congres-2024.jpg
+image: /media/affiche-congres-2024.webp
 resume: Trois jours à l'Encan de La Rochelle, précédés d'une semaine départementale d'actions, pour mieux accompagner les enfants et les familles touchés par la perte d'un parent.
 brouillon: false
 ---
@@ -12,7 +12,7 @@ En France, environ **610 000 enfants et jeunes de moins de 25 ans** ont perdu un
 
 Le congrès a réuni des intervenants de premier plan, parmi lesquels Boris Cyrulnik, Bernard Golse, Marie-Frédérique Bacqué, Magali Molinié, Damien Le Guay, Martin Julier-Costes et Guy Cordier.
 
-![Une conférence au Congrès 2024](/media/congres-2024-conference.jpg)
+![Une conférence au Congrès 2024](/media/congres-2024-conference.webp)
 
 Croisant anthropologie, sociologie, psychologie, philosophie et littérature avec la musique, le théâtre, la danse et le street art, le programme comprenait des journées thématiques, des conférences, des ateliers, un forum des soignants, des projections et une journée grand public gratuite.
 

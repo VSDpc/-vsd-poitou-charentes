@@ -1,7 +1,7 @@
 ---
 title: "Nos projets pour 2026 : de nouveaux groupes de parole"
 date: 2026-09-15
-image: /media/congres-2024-conference.jpg
+image: /media/congres-2024-conference.webp
 resume: Un groupe à Saintes, un groupe pour parents endeuillés, la présence d'un(e) psychologue dans nos groupes… L'association élargit son action.
 brouillon: false
 ---

@@ -1,7 +1,7 @@
 ---
 title: L'association
 intro: Association reconnue d'intérêt général, apolitique et non confessionnelle, Vivre Son Deuil Poitou-Charentes est membre de la Fédération Européenne Vivre Son Deuil.
-image: /media/groupe-de-parole.jpg
+image: /media/groupe-de-parole.webp
 ordre: 1
 ---
 

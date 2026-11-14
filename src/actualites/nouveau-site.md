@@ -1,7 +1,7 @@
 ---
 title: Notre nouveau site est en ligne
 date: 2026-11-13
-image: /media/cine-debat.jpg
+image: /media/capture-accueil-site.webp
 resume: Retrouvez désormais toutes nos actions, nos groupes d'entraide, nos projets et nos actualités en Poitou-Charentes sur ce site.
 brouillon: false
 ---

@@ -154,7 +154,8 @@ html { scroll-padding-top: 110px; }
 .actu { background: #fff; border-radius: var(--rayon); box-shadow: var(--ombre); overflow: hidden; transition: transform .15s, box-shadow .15s; }
 .actu:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(27,57,103,.16); }
 .actu__lien { display: flex; flex-direction: column; height: 100%; color: inherit; text-decoration: none; }
-.actu__img { aspect-ratio: 8/5; background: var(--lavande) center/cover no-repeat; }
+.actu__img { aspect-ratio: 8/5; background: var(--lavande); overflow: hidden; }
+.actu__img img { width: 100%; height: 100%; object-fit: cover; }
 .actu__corps { padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
 .actu__img--vide { background: linear-gradient(120deg, var(--marine), var(--bleu)); display: grid; place-items: center; }
 .actu__img--vide svg { width: 30%; opacity: .9; }

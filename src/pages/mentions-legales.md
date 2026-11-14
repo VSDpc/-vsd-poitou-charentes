@@ -16,11 +16,11 @@ Directrice de la publication : Martine Piton, présidente.
 
 ## Hébergement
 
-Site hébergé par Netlify, Inc. — 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis.
+Site hébergé par Cloudflare, Inc. — 101 Townsend Street, San Francisco, CA 94107, États-Unis.
 
 ## Données personnelles
 
-Les informations transmises via le formulaire de contact (nom, adresse électronique, téléphone, message) sont utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées ni utilisées à des fins commerciales, et sont conservées le temps nécessaire au traitement de votre demande.
+Les informations transmises via le formulaire de contact (nom, adresse électronique, téléphone, message) sont acheminées par le service Web3Forms jusqu'à la boîte mail de l'association, et utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées ni utilisées à des fins commerciales, et sont conservées le temps nécessaire au traitement de votre demande.
 
 Conformément au Règlement général sur la protection des données (RGPD), vous disposez d'un droit d'accès, de rectification et d'effacement de vos données. Pour l'exercer, écrivez à vivresondeuil.pc@laposte.net.
 

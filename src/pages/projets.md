@@ -1,7 +1,7 @@
 ---
 title: Nos projets
 intro: Portée par l'engagement de ses bénévoles et la confiance de ses partenaires, l'association fait évoluer et grandir son action.
-image: /media/congres-2024-conference.jpg
+image: /media/congres-2024-conference.webp
 ordre: 4
 ---
 

@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title and page.url != "/" %}{{ title }} — {% endif %}{{ site.nom }}</title>
+  {% if noindex %}<meta name="robots" content="noindex">{% endif %}
+  <link rel="canonical" href="{{ technique.url }}{{ page.url }}">
   <meta name="description" content="{{ resume or intro or site.description }}">
   <meta property="og:title" content="{{ title or site.nom }}">
   <meta property="og:description" content="{{ resume or intro or site.description }}">
   <meta property="og:image" content="{{ image or '/media/logo-vsdpc.jpg' }}">
   <link rel="preload" href="/fonts/fira-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="icon" href="/media/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/media/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="/media/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
@@ -60,7 +64,7 @@
   <footer class="footer">
     <div class="wrap footer__grid">
       <div>
-        <img class="footer__logo" src="/media/logo-vsdpc.jpg" alt="" width="140" height="88">
+        <img loading="lazy" class="footer__logo" src="/media/logo-vsdpc.jpg" alt="" width="140" height="88">
         <p>Association reconnue d'intérêt général, membre de la <a href="{{ site.federation_url }}">Fédération Européenne Vivre Son Deuil</a>.</p>
       </div>
       <div>

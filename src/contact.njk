@@ -11,9 +11,11 @@ permalink: /contact/
 </section>
 <section class="section">
   <div class="wrap contact">
-    <form class="formulaire" name="contact" method="POST" action="/merci/" data-netlify="true" netlify-honeypot="site-web">
-      <input type="hidden" name="form-name" value="contact">
-      <p class="cache"><label>Ne pas remplir : <input name="site-web"></label></p>
+    <form class="formulaire" name="contact" method="POST" action="https://api.web3forms.com/submit" data-merci="/merci/">
+      <input type="hidden" name="access_key" value="{{ formulaire.cle_web3forms }}">
+      <input type="hidden" name="subject" value="{{ formulaire.sujet }}">
+      <input type="hidden" name="from_name" value="Site {{ site.nom }}">
+      <input type="checkbox" name="botcheck" class="cache" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="champs-2">
         <p><label for="nom">Nom et prénom <span aria-hidden="true">*</span></label><input id="nom" name="nom" required autocomplete="name"></p>
         <p><label for="tel">Téléphone</label><input id="tel" name="telephone" type="tel" autocomplete="tel"></p>

@@ -1,7 +1,7 @@
 ---
 title: Nous soutenir
 intro: Toutes nos actions sont et restent gratuites pour les personnes accompagnées. Chaque adhésion, chaque don se traduit directement en actions de terrain.
-image: /media/groupe-de-parole.jpg
+image: /media/groupe-de-parole.webp
 ordre: 5
 ---
 
@@ -9,9 +9,13 @@ ordre: 5
 
 En adhérant, vous rejoignez un réseau engagé auprès des personnes endeuillées de la région et vous soutenez le fonctionnement de l'association, de RAPPEO 17 et du RDO 17.
 
+[[BOUTON_ADHERER]]
+
 ## Faire un don
 
 Vivre Son Deuil Poitou-Charentes est une association reconnue d'intérêt général : elle délivre un reçu fiscal (Cerfa) pour tout don, ouvrant droit à une réduction d'impôt de **66 % pour les particuliers** (dans la limite de 20 % du revenu imposable) et de **60 % pour les entreprises** (dans la limite de 0,5 % du chiffre d'affaires), sous réserve des conditions et plafonds fixés par la législation en vigueur.
+
+[[BOUTON_DON]]
 
 ## Devenir mécène ou partenaire
 

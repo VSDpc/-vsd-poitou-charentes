@@ -74,7 +74,7 @@ permalink: /
         <a class="btn btn--blanc" href="{{ site.rappeo_url }}">Site de RAPPEO 17</a>
       </div>
     </div>
-    <img src="/media/affiche-congres-2024.jpg" alt="Affiche du congrès « Deuils en famille ; orphelins d'un parent », La Rochelle, décembre 2024" loading="lazy">
+    <img src="/media/affiche-congres-2024.webp" alt="Affiche du congrès « Deuils en famille ; orphelins d'un parent », La Rochelle, décembre 2024" loading="lazy">
   </div>
 </section>
 
@@ -91,11 +91,11 @@ permalink: /
   <div class="wrap">
     <h2 class="titre centre">Nos partenaires</h2>
     <ul class="logos">
-      {% for p in partenaires %}<li class="{% if p.logo %}logos__img{% else %}logos__txt{% endif %}">{% if p.url %}<a href="{{ p.url }}" title="{{ p.nom }}">{% endif %}{% if p.logo %}<img src="{{ p.logo }}" alt="{{ p.nom }}">{% else %}{{ p.nom }}{% endif %}{% if p.url %}</a>{% endif %}</li>{% endfor %}
+      {% for p in partenaires %}<li class="{% if p.logo %}logos__img{% else %}logos__txt{% endif %}">{% if p.url %}<a href="{{ p.url }}" title="{{ p.nom }}">{% endif %}{% if p.logo %}<img loading="lazy" decoding="async" src="{{ p.logo }}" alt="{{ p.nom }}">{% else %}{{ p.nom }}{% endif %}{% if p.url %}</a>{% endif %}</li>{% endfor %}
     </ul>
     <p class="soutiens">Avec le soutien financier de</p>
     <ul class="logos logos--financeurs">
-      {% for f in financeurs.liste %}<li class="{% if f.logo %}logos__img{% else %}logos__txt{% endif %}">{% if f.url %}<a href="{{ f.url }}" title="{{ f.nom }}">{% endif %}{% if f.logo %}<img src="{{ f.logo }}" alt="{{ f.nom }}">{% else %}{{ f.nom }}{% endif %}{% if f.url %}</a>{% endif %}</li>{% endfor %}
+      {% for f in financeurs.liste %}<li class="{% if f.logo %}logos__img{% else %}logos__txt{% endif %}">{% if f.url %}<a href="{{ f.url }}" title="{{ f.nom }}">{% endif %}{% if f.logo %}<img loading="lazy" decoding="async" src="{{ f.logo }}" alt="{{ f.nom }}">{% else %}{{ f.nom }}{% endif %}{% if f.url %}</a>{% endif %}</li>{% endfor %}
     </ul>
     <p class="centre"><a class="btn btn--contour" href="/partenaires/">Découvrir nos partenaires</a></p>
   </div>

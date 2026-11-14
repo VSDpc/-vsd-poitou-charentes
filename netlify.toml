@@ -8,5 +8,5 @@
 # Raccourci vers le back-office : votre-site.fr/admin
 [[redirects]]
   from = "/admin"
-  to = "https://app.pagescms.org/VSDpc/-vsd-poitou-charentes/main"
+  to = "https://app.pagescms.org"
   status = 302
