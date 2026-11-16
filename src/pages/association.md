@@ -38,5 +38,3 @@ Cette conviction reste au cœur de notre projet associatif : offrir une écoute 
 - [Devenir bénévole, adhérer ou faire un don](/nous-soutenir/)
 - [Nous contacter](/contact/)
 
-> test
-
