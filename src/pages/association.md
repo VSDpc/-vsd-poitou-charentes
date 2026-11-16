@@ -37,5 +37,5 @@ Cette conviction reste au cœur de notre projet associatif : offrir une écoute 
 - En savoir plus sur [RAPPEO 17](/rappeo-17/), le réseau de psychologues que nous coordonnons
 - [Devenir bénévole, adhérer ou faire un don](/nous-soutenir/)
 - [Nous contacter](/contact/)
-- test
+- [test](/actualites/)
 
