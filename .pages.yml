@@ -30,9 +30,25 @@ content:
       - name: image
         label: Image principale
         type: image
+      - name: image_alt
+        label: "Description de l'image (texte alternatif pour Google et les malvoyants)"
+        description: "Décrire ce que montre l'image en quelques mots, par exemple : Mains réunies d'un groupe de parole."
+        type: string
       - name: resume
         label: Résumé (affiché sur les cartes)
         type: text
+      - name: seo_titre
+        label: "Google — titre de la page (facultatif, 60 caractères environ)"
+        description: "Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page."
+        type: string
+        options:
+          maxlength: 80
+      - name: seo_description
+        label: "Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)"
+        description: "Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages."
+        type: text
+        options:
+          maxlength: 170
       - name: brouillon
         label: Brouillon (cocher pour ne pas publier)
         type: boolean
@@ -42,6 +58,43 @@ content:
         type: rich-text
         options:
           format: markdown
+      - name: sections
+        label: Blocs (texte, bouton, image) affichés après le texte
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: texte
+            label: Texte
+            fields:
+              - name: texte
+                label: Texte
+                type: rich-text
+                options:
+                  format: markdown
+          - name: bouton
+            label: Bouton
+            fields:
+              - name: texte
+                label: Texte du bouton (ex. Me parler de votre projet)
+                type: string
+              - name: lien
+                label: Lien (ex. /contact/ ou https://…)
+                type: string
+              - name: style
+                label: Style
+                type: select
+                options:
+                  values: [Violet, Jaune, Contour]
+          - name: image
+            label: Image
+            fields:
+              - name: image
+                label: Image
+                type: image
+              - name: legende
+                label: Légende (facultatif)
+                type: string
 
   # ---------- PAGES ----------
   - name: pages
@@ -76,6 +129,18 @@ content:
       - name: intro
         label: Phrase d'introduction (bandeau du haut)
         type: text
+      - name: seo_titre
+        label: "Google — titre de la page (facultatif, 60 caractères environ)"
+        description: "Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page."
+        type: string
+        options:
+          maxlength: 80
+      - name: seo_description
+        label: "Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)"
+        description: "Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages."
+        type: text
+        options:
+          maxlength: 170
       - name: image
         label: Image du bandeau
         type: image
@@ -87,6 +152,43 @@ content:
         type: rich-text
         options:
           format: markdown
+      - name: sections
+        label: Blocs (texte, bouton, image) affichés après le texte
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: texte
+            label: Texte
+            fields:
+              - name: texte
+                label: Texte
+                type: rich-text
+                options:
+                  format: markdown
+          - name: bouton
+            label: Bouton
+            fields:
+              - name: texte
+                label: Texte du bouton (ex. Me parler de votre projet)
+                type: string
+              - name: lien
+                label: Lien (ex. /contact/ ou https://…)
+                type: string
+              - name: style
+                label: Style
+                type: select
+                options:
+                  values: [Violet, Jaune, Contour]
+          - name: image
+            label: Image
+            fields:
+              - name: image
+                label: Image
+                type: image
+              - name: legende
+                label: Légende (facultatif)
+                type: string
 
   # ---------- PAGE D'ACCUEIL ----------
   - name: accueil
@@ -273,6 +375,68 @@ content:
       - name: texte
         label: Explication
         type: text
+
+  # ---------- RÉFÉRENCEMENT DES PAGES FIXES ----------
+  - name: technique
+    label: Réglages techniques (adresse du site, statistiques)
+    type: file
+    path: src/_data/technique.json
+    format: json
+    fields:
+      - name: url
+        label: Adresse du site (sans / final)
+        description: "À changer quand le nom de domaine sera acheté, ex. https://www.vivresondeuil-poitoucharentes.fr"
+        type: string
+      - name: cloudflare_analytics_token
+        label: Jeton Cloudflare Web Analytics
+        description: "Coller ici le « token » fourni par Cloudflare (Web Analytics). Laisser vide pour désactiver les statistiques."
+        type: string
+  - name: seo
+    label: Référencement Google (pages fixes)
+    type: file
+    path: src/_data/seo.json
+    format: json
+    fields:
+      - name: accueil
+        label: "Page d'accueil"
+        type: object
+        fields:
+          - name: titre
+            label: Titre pour Google (60 caractères environ)
+            type: string
+          - name: description
+            label: Description pour Google (160 caractères environ)
+            type: text
+      - name: actualites
+        label: "Page Actualités"
+        type: object
+        fields:
+          - name: titre
+            label: Titre pour Google (60 caractères environ)
+            type: string
+          - name: description
+            label: Description pour Google (160 caractères environ)
+            type: text
+      - name: partenaires
+        label: "Page Partenaires"
+        type: object
+        fields:
+          - name: titre
+            label: Titre pour Google (60 caractères environ)
+            type: string
+          - name: description
+            label: Description pour Google (160 caractères environ)
+            type: text
+      - name: contact
+        label: "Page Contact"
+        type: object
+        fields:
+          - name: titre
+            label: Titre pour Google (60 caractères environ)
+            type: string
+          - name: description
+            label: Description pour Google (160 caractères environ)
+            type: text
 
   # ---------- COORDONNÉES ----------
   - name: site
