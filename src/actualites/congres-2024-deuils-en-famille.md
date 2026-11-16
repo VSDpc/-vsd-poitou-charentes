@@ -4,6 +4,9 @@ date: 2024-12-10
 image: /media/affiche-congres-2024.webp
 resume: Trois jours à l'Encan de La Rochelle, précédés d'une semaine départementale d'actions, pour mieux accompagner les enfants et les familles touchés par la perte d'un parent.
 brouillon: false
+seo_titre: "Congrès 2024 « Deuils en famille » à La Rochelle"
+seo_description: "Retour sur le congrès de décembre 2024 à l'Encan de La Rochelle, avec Boris Cyrulnik, Bernard Golse et Marie-Frédérique Bacqué."
+image_alt: "Affiche du congrès « Deuils en famille ; orphelins d'un parent », La Rochelle, décembre 2024"
 ---
 
 En France, environ **610 000 enfants et jeunes de moins de 25 ans** ont perdu un de leurs parents — une réalité encore peu prise en compte.

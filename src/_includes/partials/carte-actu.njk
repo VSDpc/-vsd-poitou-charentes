@@ -1,6 +1,6 @@
 <article class="actu">
   <a class="actu__lien" href="{{ actu.url }}">
-    {% if actu.data.image %}<div class="actu__img"><img src="{{ actu.data.image }}" alt="" loading="lazy" decoding="async"></div>{% else %}<div class="actu__img actu__img--vide"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M34 8c8 10 12 22 10 36H20C30 34 34 22 34 8z" fill="#4090C7"/><path d="M8 50c16 5 32 5 48 0" stroke="#E3C445" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div>{% endif %}
+    {% if actu.data.image %}<div class="actu__img"><img src="{{ actu.data.image }}" alt="{{ actu.data.image_alt or '' }}" loading="lazy" decoding="async"></div>{% else %}<div class="actu__img actu__img--vide"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M34 8c8 10 12 22 10 36H20C30 34 34 22 34 8z" fill="#4090C7"/><path d="M8 50c16 5 32 5 48 0" stroke="#E3C445" stroke-width="4" fill="none" stroke-linecap="round"/></svg></div>{% endif %}
     <div class="actu__corps">
       <time datetime="{{ actu.date | dateIso }}">{{ actu.date | dateFr }}</time>
       <h3>{{ actu.data.title }}</h3>

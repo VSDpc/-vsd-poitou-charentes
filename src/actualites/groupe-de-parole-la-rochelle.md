@@ -4,6 +4,9 @@ date: 2026-10-03
 image: /media/groupe-de-parole.webp
 resume: Un mercredi par mois, un espace d'écoute, de soutien et de partage pour les adultes endeuillés de La Rochelle et ses alentours. Gratuit.
 brouillon: false
+seo_titre: "Groupe de parole pour personnes endeuillées à La Rochelle"
+seo_description: "Un mercredi par mois à la Maison des associations Laleu La Pallice : un groupe d'entraide gratuit pour adultes endeuillés."
+image_alt: "Mains réunies d'un groupe de parole, bracelets aux poignets"
 ---
 
 **Vivre Son Deuil Poitou-Charentes propose un groupe de parole et d'entraide destiné aux personnes endeuillées de La Rochelle et ses alentours.**

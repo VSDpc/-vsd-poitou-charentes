@@ -4,6 +4,9 @@ date: 2026-11-13
 image: /media/capture-accueil-site.webp
 resume: Retrouvez désormais toutes nos actions, nos groupes d'entraide, nos projets et nos actualités en Poitou-Charentes sur ce site.
 brouillon: false
+seo_titre: "Notre nouveau site est en ligne — Vivre Son Deuil Poitou-Charentes"
+seo_description: "Retrouvez nos actions, nos groupes d'entraide, nos projets et nos actualités sur le nouveau site de Vivre Son Deuil Poitou-Charentes."
+image_alt: "Page d'accueil du nouveau site de Vivre Son Deuil Poitou-Charentes"
 ---
 
 Vivre Son Deuil Poitou-Charentes se dote d'un site internet pour mieux faire connaître ses actions auprès des personnes endeuillées, de leurs proches et des professionnels de la région.

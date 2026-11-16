@@ -3,6 +3,8 @@ title: RAPPEO 17
 intro: Le Réseau d'Accompagnement Psychologique des Personnes Endeuillées et Orphelins de Charente-Maritime, coordonné par Vivre Son Deuil Poitou-Charentes.
 image: /media/cine-debat.webp
 ordre: 3
+seo_titre: "RAPPEO 17 : psychologues du deuil en Charente-Maritime"
+seo_description: "Réseau de psychologues pour les personnes endeuillées et les orphelins en Charente-Maritime, en partenariat avec la CPAM, la CAF et la MSA."
 ---
 
 ## Un réseau de psychologues sur tout le département

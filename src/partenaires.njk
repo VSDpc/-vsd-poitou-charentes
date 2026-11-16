@@ -1,5 +1,6 @@
 ---
 layout: base.njk
+seoKey: partenaires
 title: Nos partenaires
 intro: Vivre Son Deuil Poitou-Charentes travaille en réseau avec des associations locales et nationales engagées auprès des personnes endeuillées et en fin de vie.
 permalink: /partenaires/
@@ -16,9 +17,9 @@ permalink: /partenaires/
     <article class="carte partenaire">
       <div class="partenaire__logo">{% if p.logo %}<img loading="lazy" decoding="async" src="{{ p.logo }}" alt="Logo {{ p.nom }}">{% else %}<span>{{ p.nom | truncate(14, true, "") }}</span>{% endif %}</div>
       <div>
-        <h2>{{ p.nom }}</h2>
+        <h2>{% if p.url %}<a class="partenaire__nom" href="{{ p.url }}">{{ p.nom }}</a>{% else %}{{ p.nom }}{% endif %}</h2>
         <p>{{ p.description }}</p>
-        {% if p.url %}<a class="lien-fort" href="{{ p.url }}">Visiter le site →</a>{% endif %}
+        {% if p.url %}<a class="lien-fort" href="{{ p.url }}">Visiter le site de {{ p.nom }} →</a>{% endif %}
       </div>
     </article>
     {% endfor %}

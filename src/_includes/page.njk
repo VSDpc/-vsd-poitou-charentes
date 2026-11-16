@@ -32,6 +32,7 @@ layout: base.njk
     {%- set btnAdh = '<p><a class="btn" href="' + site.adhesion_url + '">J\'adhère sur HelloAsso</a></p>' -%}
     {%- set btnDon = '<p><a class="btn" href="' + site.don_url + '">Je fais un don sur HelloAsso</a></p>' -%}
     {{ content | replace("<p>[[BOUTON_ADHERER]]</p>", btnAdh) | replace("<p>[[BOUTON_DON]]</p>", btnDon) | replace("[[BOUTON_ADHERER]]", btnAdh) | replace("[[BOUTON_DON]]", btnDon) | safe }}
+    {% include "partials/blocs.njk" %}
   </div>
 </section>
 

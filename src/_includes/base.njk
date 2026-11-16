@@ -3,13 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if title and page.url != "/" %}{{ title }} — {% endif %}{{ site.nom }}</title>
+  {%- set fixe = seo[seoKey] if seoKey else null -%}
+  {%- set titreSeo = seo_titre or (fixe.titre if fixe) or ((title + " — " + site.nom) if title else site.nom) -%}
+  {%- set descSeo = seo_description or (fixe.description if fixe) or resume or intro or site.description -%}
+  {%- set imgSeo = image or accueil.hero_image or "/media/logo-vsdpc.jpg" -%}
+  {%- set urlPage = technique.url + page.url -%}
+  <title>{{ titreSeo }}</title>
+  <meta name="description" content="{{ descSeo }}">
   {% if noindex %}<meta name="robots" content="noindex">{% endif %}
-  <link rel="canonical" href="{{ technique.url }}{{ page.url }}">
-  <meta name="description" content="{{ resume or intro or site.description }}">
-  <meta property="og:title" content="{{ title or site.nom }}">
-  <meta property="og:description" content="{{ resume or intro or site.description }}">
-  <meta property="og:image" content="{{ image or '/media/logo-vsdpc.jpg' }}">
+  <link rel="canonical" href="{{ urlPage }}">
+  <meta property="og:site_name" content="{{ site.nom }}">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:type" content="{{ 'article' if layout == 'actualite.njk' else 'website' }}">
+  <meta property="og:title" content="{{ titreSeo }}">
+  <meta property="og:description" content="{{ descSeo }}">
+  <meta property="og:url" content="{{ urlPage }}">
+  <meta property="og:image" content="{{ technique.url }}{{ imgSeo }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {%- if page.url == "/" %}
+  <link rel="preload" as="image" href="{{ accueil.hero_image }}">
+  <script type="application/ld+json">{{ site | ldAccueil(technique.url) | safe }}</script>
+  {%- endif %}
+  {%- if layout == "actualite.njk" %}
+  <script type="application/ld+json">{{ site | ldArticle(technique.url, title, descSeo, imgSeo, page.date, urlPage) | safe }}</script>
+  {%- endif %}
   <link rel="preload" href="/fonts/fira-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="/media/favicon-32.png" sizes="32x32" type="image/png">
@@ -96,5 +113,6 @@
     </div>
   </footer>
   <script src="/js/main.js" defer></script>
+  {% if technique.cloudflare_analytics_token %}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ technique.cloudflare_analytics_token }}"}'></script>{% endif %}
 </body>
 </html>

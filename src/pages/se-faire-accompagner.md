@@ -3,6 +3,8 @@ title: Se faire accompagner
 intro: Toutes nos actions sont gratuites et ouvertes à toute personne endeuillée de la région, quel que soit le deuil traversé.
 image: /media/groupe-de-parole.webp
 ordre: 2
+seo_titre: "Se faire accompagner dans son deuil en Poitou-Charentes"
+seo_description: "Écoute téléphonique, entretiens individuels, groupes d'entraide à Niort, La Rochelle et Poitiers : un accompagnement gratuit et confidentiel."
 ---
 
 ## Comment ça se passe ?

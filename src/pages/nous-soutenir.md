@@ -3,6 +3,8 @@ title: Nous soutenir
 intro: Toutes nos actions sont et restent gratuites pour les personnes accompagnées. Chaque adhésion, chaque don se traduit directement en actions de terrain.
 image: /media/groupe-de-parole.webp
 ordre: 5
+seo_titre: "Adhérer, faire un don, devenir bénévole — Vivre Son Deuil PC"
+seo_description: "Soutenez l'accompagnement gratuit des personnes endeuillées : adhésion, don avec réduction d'impôt de 66 %, mécénat ou bénévolat."
 ---
 
 ## Adhérer à l'association

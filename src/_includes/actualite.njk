@@ -10,10 +10,11 @@ layout: base.njk
 </section>
 <section class="section">
   <div class="wrap article">
-    {% if image %}<img loading="lazy" decoding="async" class="article__image" src="{{ image }}" alt="">{% endif %}
+    {% if image %}<img class="article__image" src="{{ image }}" alt="{{ image_alt or title }}">{% endif %}
     <div class="prose">
       {% if resume %}<p class="article__chapeau">{{ resume }}</p>{% endif %}
       {{ content | safe }}
+      {% include "partials/blocs.njk" %}
     </div>
     <p><a class="lien-retour" href="/actualites/">← Toutes les actualités</a></p>
   </div>

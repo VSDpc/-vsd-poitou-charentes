@@ -4,6 +4,9 @@ date: 2026-11-13
 image: /media/cine-debat.webp
 resume: Vous avez perdu un parent dans votre enfance ? À partir de janvier 2027, un groupe de parole réunit à Poitiers (ou à distance) les orphelin·e·s de l'enfance devenu·e·s adultes. Entretiens préalables jusqu'au 27 novembre.
 brouillon: false
+seo_titre: "Groupe de parole pour orphelins devenus adultes à Poitiers"
+seo_description: "Dès janvier 2027, un samedi matin par mois à Poitiers ou à distance, un groupe pour adultes ayant perdu un parent enfant."
+image_alt: "Salle de ciné-débat autour du film « Une mort partagée » de Bernard Martino"
 ---
 
 > « Un orphelin doit rester ce qu'il est, c'est-à-dire un enfant ordinaire, avec un destin particulier. »
