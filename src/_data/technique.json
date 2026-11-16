@@ -1,4 +1,4 @@
 {
   "url": "https://vsd-poitou-charentes.vivresondeuil-pc.workers.dev",
-  "cloudflare_analytics_token": ""
+  "cloudflare_analytics_token": "<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{\"token\": \"5d9c2523beba4feea18f77b21841f2ea\"}'></script><!-- End Cloudflare Web Analytics -->"
 }
