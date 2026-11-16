@@ -1,12 +1,15 @@
 ---
 title: L'association
-intro: Association reconnue d'intérêt général, apolitique et non confessionnelle, Vivre Son Deuil Poitou-Charentes est membre de la Fédération Européenne Vivre Son Deuil.
+menu: false
+intro: Association reconnue d'intérêt général, apolitique et non
+  confessionnelle, Vivre Son Deuil Poitou-Charentes est membre de la Fédération
+  Européenne Vivre Son Deuil.
+seo_titre: "L'association Vivre Son Deuil Poitou-Charentes : histoire et valeurs"
+seo_description: Association reconnue d'intérêt général, membre de la Fédération
+  Européenne Vivre Son Deuil, fondée sur l'héritage du Dr Michel Hanus.
 image: /media/groupe-de-parole.webp
 ordre: 1
-seo_titre: "L'association Vivre Son Deuil Poitou-Charentes : histoire et valeurs"
-seo_description: "Association reconnue d'intérêt général, membre de la Fédération Européenne Vivre Son Deuil, fondée sur l'héritage du Dr Michel Hanus."
 ---
-
 ## Qui sommes-nous ?
 
 Vivre Son Deuil Poitou-Charentes intervient sur l'ensemble de la région Poitou-Charentes avec une mission : **qu'aucune personne endeuillée ne reste seule face à sa douleur**.
@@ -34,3 +37,5 @@ Cette conviction reste au cœur de notre projet associatif : offrir une écoute 
 - En savoir plus sur [RAPPEO 17](/rappeo-17/), le réseau de psychologues que nous coordonnons
 - [Devenir bénévole, adhérer ou faire un don](/nous-soutenir/)
 - [Nous contacter](/contact/)
+- 
+
