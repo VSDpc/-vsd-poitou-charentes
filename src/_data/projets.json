@@ -1,6 +1,9 @@
 {
-  "bouton": "Soutenir un projet",
   "liste": [
+    {
+      "titre": "Équithérapie pour adolescents",
+      "texte": "Offrir aux adolescents endeuillés, par la médiation équine, un espace d'expression complémentaire à la parole."
+    },
     {
       "titre": "Un(e) psychologue dans nos groupes de parole",
       "texte": "Faire intervenir régulièrement un(e) psychologue aux côtés de nos bénévoles, pour sécuriser l'accompagnement des deuils complexes ou traumatiques, tout en maintenant la gratuité totale pour les participants."
@@ -18,12 +21,9 @@
       "texte": "Permettre, avec une biographe bénévole, à des personnes endeuillées, âgées, malades ou en fin de vie de mettre en mots leur histoire de vie et de la transmettre à leurs proches."
     },
     {
-      "titre": "Équithérapie pour enfants et adolescents",
-      "texte": "Offrir aux enfants et adolescents endeuillés, par la médiation équine, un espace d'expression complémentaire à la parole."
-    },
-    {
       "titre": "Un groupe pour orphelins devenus adultes",
       "texte": "À partir de janvier 2027, un samedi matin par mois à Poitiers (ou à distance) : un espace de parole pour les adultes ayant perdu un parent dans l'enfance."
     }
-  ]
+  ],
+  "bouton": "Soutenir un projet"
 }
