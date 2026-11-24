@@ -231,6 +231,212 @@ content:
       - name: citation_auteur
         label: Auteur de la citation
         type: string
+      - name: actions_titre
+        label: Bloc « Nos actions » — titre
+        type: string
+      - name: actions_chapeau
+        label: Bloc « Nos actions » — phrase d'introduction
+        type: text
+      - name: actus_titre
+        label: Bloc actualités — titre
+        type: string
+      - name: rappeo_surtitre
+        label: Bandeau RAPPEO 17 — petit texte au-dessus du titre
+        type: string
+      - name: rappeo_titre
+        label: Bandeau RAPPEO 17 — titre
+        type: string
+      - name: rappeo_texte
+        label: Bandeau RAPPEO 17 — texte
+        type: text
+      - name: rappeo_image
+        label: Bandeau RAPPEO 17 — image (affiche)
+        type: image
+      - name: rappeo_image_alt
+        label: Bandeau RAPPEO 17 — description de l'image
+        type: string
+      - name: partenaires_titre
+        label: Bloc partenaires — titre
+        type: string
+      - name: financeurs_phrase
+        label: Bloc partenaires — phrase au-dessus des logos des financeurs
+        type: string
+
+  # ---------- TEXTES DES ENCADRÉS ----------
+  - name: textes
+    label: Textes des encadrés (titres et blocs fixes des pages)
+    type: file
+    path: src/_data/textes.json
+    format: json
+    fields:
+      - name: accompagner
+        label: "Page Se faire accompagner"
+        type: object
+        fields:
+          - name: propositions_titre
+            label: "Titre des cartes d'accompagnement"
+            type: string
+          - name: groupes_titre
+            label: "Titre des groupes d'entraide"
+            type: string
+          - name: appel_titre
+            label: "Encadré sous les groupes — titre"
+            type: string
+          - name: appel_texte
+            label: "Encadré sous les groupes — texte"
+            type: text
+      - name: association
+        label: "Page L'association"
+        type: object
+        fields:
+          - name: valeurs_titre
+            label: "Titre des valeurs"
+            type: string
+          - name: valeurs_chapeau
+            label: "Phrase sous le titre des valeurs"
+            type: text
+          - name: equipe_titre
+            label: "Titre de l'équipe"
+            type: string
+          - name: bureau_titre
+            label: "Sous-titre du bureau"
+            type: string
+          - name: ca_titre
+            label: "Sous-titre du conseil d'administration"
+            type: string
+      - name: projets
+        label: "Page Nos projets"
+        type: object
+        fields:
+          - name: bouton
+            label: "Texte du bouton sous les projets"
+            type: string
+      - name: rappeo
+        label: "Page RAPPEO 17"
+        type: object
+        fields:
+          - name: contact_titre
+            label: "Encadré « Contacter RAPPEO 17 » — titre"
+            type: string
+          - name: contact_texte
+            label: "Encadré — texte"
+            type: text
+          - name: contact_bouton
+            label: "Encadré — texte du bouton"
+            type: string
+      - name: soutenir
+        label: "Page Nous soutenir (bandeau bleu du bas)"
+        type: object
+        fields:
+          - name: adherer_titre
+            label: "Adhérer — titre"
+            type: string
+          - name: adherer_texte
+            label: "Adhérer — texte"
+            type: text
+          - name: adherer_bouton
+            label: "Adhérer — bouton"
+            type: string
+          - name: don_titre
+            label: "Don — titre"
+            type: string
+          - name: don_texte
+            label: "Don — texte"
+            type: text
+          - name: don_bouton
+            label: "Don — bouton"
+            type: string
+          - name: mecenat_titre
+            label: "Mécénat — titre"
+            type: string
+          - name: mecenat_texte
+            label: "Mécénat — texte"
+            type: text
+          - name: mecenat_bouton
+            label: "Mécénat — bouton"
+            type: string
+      - name: partenaires
+        label: "Page Partenaires"
+        type: object
+        fields:
+          - name: intro
+            label: "Phrase d'introduction"
+            type: text
+          - name: financeurs_titre
+            label: "Titre des financeurs"
+            type: string
+          - name: devenir_titre
+            label: "Encadré « Devenir partenaire » — titre"
+            type: string
+          - name: devenir_texte
+            label: "Encadré — texte"
+            type: text
+      - name: contact
+        label: "Page Contact"
+        type: object
+        fields:
+          - name: coordonnees_titre
+            label: "Titre des coordonnées"
+            type: string
+          - name: urgence_titre
+            label: "Encadré urgence — titre"
+            type: string
+          - name: urgence_texte
+            label: "Encadré urgence — texte (numéros d'urgence : vérifier avant de modifier)"
+            type: rich-text
+            options:
+              format: markdown
+      - name: formulaire
+        label: "Page Contact — formulaire et mention données personnelles"
+        description: "Attention : la mention et la case à cocher sont exigées par le RGPD. Si vous changez un prestataire, la durée de conservation ou l'adresse, modifiez aussi la page Mentions légales."
+        type: object
+        fields:
+          - name: label_nom
+            label: "Champ nom — intitulé"
+            type: string
+          - name: label_telephone
+            label: "Champ téléphone — intitulé"
+            type: string
+          - name: label_email
+            label: "Champ e-mail — intitulé"
+            type: string
+          - name: label_objet
+            label: "Liste « Votre demande concerne » — intitulé"
+            type: string
+          - name: objets
+            label: "Choix proposés dans la liste"
+            type: string
+            list: true
+          - name: label_message
+            label: "Champ message — intitulé"
+            type: string
+          - name: consentement
+            label: "Case à cocher obligatoire (consentement)"
+            type: text
+          - name: mention
+            label: "Mention données personnelles sous le formulaire"
+            type: rich-text
+            options:
+              format: markdown
+          - name: bouton
+            label: "Bouton d'envoi"
+            type: string
+      - name: merci
+        label: "Page Merci (après envoi du formulaire)"
+        type: object
+        fields:
+          - name: texte
+            label: "Texte (le numéro de téléphone s'ajoute automatiquement à la fin)"
+            type: text
+      - name: pied
+        label: "Pied de page"
+        type: object
+        fields:
+          - name: presentation
+            label: "Présentation de l'association"
+            type: rich-text
+            options:
+              format: markdown
 
   # ---------- NOS ACTIONS ----------
   - name: actions
@@ -389,7 +595,7 @@ content:
         type: string
       - name: cloudflare_analytics_token
         label: Jeton Cloudflare Web Analytics
-        description: "Coller ici le « token » fourni par Cloudflare (Web Analytics). Laisser vide pour désactiver les statistiques."
+        description: "Coller ici le « token » fourni par Cloudflare (ou le code complet, le site extrait le jeton). Laisser vide pour désactiver les statistiques."
         type: string
   - name: seo
     label: Référencement Google (pages fixes)
