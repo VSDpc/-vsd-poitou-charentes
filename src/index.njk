@@ -40,7 +40,7 @@ permalink: /
     <h2 class="titre centre">{{ accueil.actions_titre }}</h2>
     <p class="chapeau centre">{{ accueil.actions_chapeau }}</p>
     <div class="grille grille--3">
-      {% for a in actions %}{% set icone = a.icone %}
+      {% for a in actions.liste %}{% set icone = a.icone %}
       <article class="carte carte--action">
         {% include "partials/icone-action.njk" %}
         <h3>{% if a.lien %}<a class="carte__lien" href="{{ a.lien }}">{{ a.titre }}</a>{% else %}{{ a.titre }}{% endif %}</h3>
@@ -92,7 +92,7 @@ permalink: /
   <div class="wrap">
     <h2 class="titre centre">{{ accueil.partenaires_titre }}</h2>
     <ul class="logos">
-      {% for p in partenaires %}<li class="{% if p.logo %}logos__img{% else %}logos__txt{% endif %}">{% if p.url %}<a href="{{ p.url }}" title="{{ p.nom }}">{% endif %}{% if p.logo %}<img loading="lazy" decoding="async" src="{{ p.logo }}" alt="{{ p.nom }}">{% else %}{{ p.nom }}{% endif %}{% if p.url %}</a>{% endif %}</li>{% endfor %}
+      {% for p in partenaires.liste %}<li class="{% if p.logo %}logos__img{% else %}logos__txt{% endif %}">{% if p.url %}<a href="{{ p.url }}" title="{{ p.nom }}">{% endif %}{% if p.logo %}<img loading="lazy" decoding="async" src="{{ p.logo }}" alt="{{ p.nom }}">{% else %}{{ p.nom }}{% endif %}{% if p.url %}</a>{% endif %}</li>{% endfor %}
     </ul>
     <p class="soutiens">{{ accueil.financeurs_phrase }}</p>
     <ul class="logos logos--financeurs">

@@ -17,7 +17,7 @@ permalink: /contact/
       <input type="hidden" name="subject" value="{{ formulaire.sujet }}">
       <input type="hidden" name="from_name" value="Site {{ site.nom }}">
       <input type="checkbox" name="botcheck" class="cache" tabindex="-1" autocomplete="off" aria-hidden="true">
-      {%- set f = textes.formulaire %}
+      {%- set f = contact.formulaire %}
       <div class="champs-2">
         <p><label for="nom">{{ f.label_nom }} <span aria-hidden="true">*</span></label><input id="nom" name="nom" required autocomplete="name"></p>
         <p><label for="tel">{{ f.label_telephone }}</label><input id="tel" name="telephone" type="tel" autocomplete="tel"></p>
@@ -37,15 +37,15 @@ permalink: /contact/
     </form>
     <aside class="contact__infos">
       <div class="carte">
-        <h2>{{ textes.contact.coordonnees_titre }}</h2>
+        <h2>{{ contact.coordonnees_titre }}</h2>
         <p><a class="contact__tel" href="{{ site.telephone | tel }}">{% include "partials/icone-tel.njk" %} {{ site.telephone }}</a></p>
         <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
         <p>{{ site.adresse }}</p>
         <p class="contact__suivre">Suivez-nous {% include "partials/reseaux.njk" %}</p>
       </div>
       <div class="carte carte--alerte">
-        <h2>{{ textes.contact.urgence_titre }}</h2>
-        {{ textes.contact.urgence_texte | md | safe }}
+        <h2>{{ contact.urgence_titre }}</h2>
+        {{ contact.urgence_texte | md | safe }}
       </div>
     </aside>
   </div>

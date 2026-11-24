@@ -1,7 +1,21 @@
 {%- if sections and sections.length %}
 <div class="blocs">
-{%- for b in sections %}
-  {%- if b.type == "texte" and b.texte %}
+{%- for b in sections | grouperEncadres %}
+  {%- if b.type == "groupe-encadres" %}
+  <div class="encadres encadres--{{ b.items.length }}">
+    {%- for e in b.items %}
+    <div class="encadre encadre--{{ 'bleu' if e.fond == 'Bleu' else 'lavande' }}">
+      {% if e.titre %}<h2>{{ e.titre }}</h2>{% endif %}
+      {% if e.texte %}{{ e.texte | md | safe }}{% endif %}
+      {%- if e.bouton_texte and e.bouton_lien %}
+      {%- set l = e.bouton_lien | trim %}
+      {%- if l == "adhesion" %}{% set l = site.adhesion_url %}{% elif l == "don" %}{% set l = site.don_url %}{% elif l == "rappeo" %}{% set l = site.rappeo_url %}{% elif l == "federation" %}{% set l = site.federation_url %}{% endif %}
+      <p><a class="btn btn--jaune" href="{{ l }}">{{ e.bouton_texte }}</a></p>
+      {%- endif %}
+    </div>
+    {%- endfor %}
+  </div>
+  {%- elif b.type == "texte" and b.texte %}
   <div class="bloc bloc--texte">{{ b.texte | md | safe }}</div>
   {%- elif b.type == "bouton" and b.texte and b.lien %}
   {%- set cls = "btn" %}{% if b.style == "Jaune" %}{% set cls = "btn btn--jaune" %}{% elif b.style == "Contour" %}{% set cls = "btn btn--contour" %}{% endif %}

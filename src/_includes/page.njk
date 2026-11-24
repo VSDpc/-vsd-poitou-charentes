@@ -12,9 +12,9 @@ layout: base.njk
 {% if slug == "se-faire-accompagner" %}
 <section class="section">
   <div class="wrap">
-    <h2 class="titre">{{ textes.accompagner.propositions_titre }}</h2>
+    <h2 class="titre">{{ actions.titre_accompagner }}</h2>
     <div class="grille grille--3">
-      {% for a in actions %}{% set icone = a.icone %}
+      {% for a in actions.liste %}{% set icone = a.icone %}
       <article class="carte carte--action">
         {% include "partials/icone-action.njk" %}
         <h3>{% if a.lien %}<a class="carte__lien" href="{{ a.lien }}">{{ a.titre }}</a>{% else %}{{ a.titre }}{% endif %}</h3>
@@ -39,9 +39,9 @@ layout: base.njk
 {% if slug == "se-faire-accompagner" %}
 <section class="section" id="groupes">
   <div class="wrap">
-    <h2 class="titre">{{ textes.accompagner.groupes_titre }}</h2>
+    <h2 class="titre">{{ groupes.titre }}</h2>
     <div class="grille grille--3">
-      {% for g in groupes %}
+      {% for g in groupes.liste %}
       <article class="carte carte--groupe{% if g.statut == 'projet' %} carte--projet{% endif %}">
         <span class="etiquette">{% if g.statut == "projet" %}Bientôt{% else %}Groupe actif{% endif %}</span>
         <h3>{{ g.ville }}</h3>
@@ -59,10 +59,10 @@ layout: base.njk
 {% if slug == "association" %}
 <section class="section section--lavande">
   <div class="wrap">
-    <h2 class="titre">{{ textes.association.valeurs_titre }}</h2>
-    <p class="chapeau">{{ textes.association.valeurs_chapeau }}</p>
+    <h2 class="titre">{{ valeurs.titre }}</h2>
+    <p class="chapeau">{{ valeurs.chapeau }}</p>
     <ul class="valeurs">
-      {% for v in valeurs %}
+      {% for v in valeurs.liste %}
       <li>{% include "partials/icone-check.njk" %}<div><strong>{{ v.titre }}</strong><span>{{ v.texte }}</span></div></li>
       {% endfor %}
     </ul>
@@ -70,12 +70,12 @@ layout: base.njk
 </section>
 <section class="section">
   <div class="wrap">
-    <h2 class="titre">{{ textes.association.equipe_titre }}</h2>
-    <h3 class="sous-titre">{{ textes.association.bureau_titre }}</h3>
+    <h2 class="titre">{{ equipe.titre }}</h2>
+    <h3 class="sous-titre">{{ equipe.bureau_titre }}</h3>
     <div class="grille grille--3 equipe">
       {% for p in equipe.bureau %}<div class="membre"><strong>{{ p.nom }}</strong><span class="membre__fonction">{{ p.fonction }}</span><span class="membre__metier">{{ p.profession }}</span></div>{% endfor %}
     </div>
-    <h3 class="sous-titre">{{ textes.association.ca_titre }}</h3>
+    <h3 class="sous-titre">{{ equipe.ca_titre }}</h3>
     <div class="grille grille--4 equipe">
       {% for p in equipe.ca %}<div class="membre"><strong>{{ p.nom }}</strong><span class="membre__fonction">{{ p.fonction }}</span><span class="membre__metier">{{ p.profession }}</span></div>{% endfor %}
     </div>
@@ -87,7 +87,7 @@ layout: base.njk
 <section class="section section--lavande">
   <div class="wrap">
     <div class="grille grille--3">
-      {% for p in projets %}
+      {% for p in projets.liste %}
       <article class="carte carte--projet-num">
         <span class="num">{{ loop.index }}</span>
         <h3>{{ p.titre }}</h3>
@@ -95,27 +95,9 @@ layout: base.njk
       </article>
       {% endfor %}
     </div>
-    <p class="centre"><a class="btn" href="/nous-soutenir/">{{ textes.projets.bouton }}</a></p>
+    <p class="centre"><a class="btn" href="/nous-soutenir/">{{ projets.bouton }}</a></p>
   </div>
 </section>
 {% endif %}
 
-{% if slug == "rappeo-17" %}
-<section class="section section--lavande">
-  <div class="wrap centre">
-    <h2 class="titre">{{ textes.rappeo.contact_titre }}</h2>
-    <p class="chapeau">{{ textes.rappeo.contact_texte }}</p>
-    <p><a class="btn" href="{{ site.rappeo_url }}">{{ textes.rappeo.contact_bouton }}</a></p>
-  </div>
-</section>
-{% endif %}
 
-{% if slug == "nous-soutenir" %}
-<section class="section section--marine">
-  <div class="wrap soutien">
-    {% set s = textes.soutenir %}<div><h2>{{ s.adherer_titre }}</h2><p>{{ s.adherer_texte }}</p><a class="btn btn--jaune" href="{{ site.adhesion_url }}">{{ s.adherer_bouton }}</a></div>
-    <div><h2>{{ s.don_titre }}</h2><p>{{ s.don_texte }}</p><a class="btn btn--jaune" href="{{ site.don_url }}">{{ s.don_bouton }}</a></div>
-    <div><h2>{{ s.mecenat_titre }}</h2><p>{{ s.mecenat_texte }}</p><a class="btn btn--blanc" href="/contact/">{{ s.mecenat_bouton }}</a></div>
-  </div>
-</section>
-{% endif %}

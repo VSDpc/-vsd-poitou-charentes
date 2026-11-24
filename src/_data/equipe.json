@@ -1,4 +1,6 @@
 {
+  "titre": "L'équipe",
+  "bureau_titre": "Le bureau",
   "bureau": [
     {
       "nom": "Martine Piton",
@@ -31,6 +33,7 @@
       "profession": "Chargé d'étude en sécurité routière"
     }
   ],
+  "ca_titre": "Le conseil d'administration",
   "ca": [
     {
       "nom": "Claire-Anne Batard",

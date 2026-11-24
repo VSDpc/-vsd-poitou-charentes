@@ -7,12 +7,12 @@ permalink: /partenaires/
 <section class="bandeau bandeau--simple">
   <div class="wrap">
     <h1>{{ title }}</h1>
-    <p class="bandeau__intro">{{ textes.partenaires.intro }}</p>
+    <p class="bandeau__intro">{{ partenaires.intro }}</p>
   </div>
 </section>
 <section class="section">
   <div class="wrap grille grille--2">
-    {% for p in partenaires %}
+    {% for p in partenaires.liste %}
     <article class="carte partenaire">
       <div class="partenaire__logo">{% if p.logo %}<img loading="lazy" decoding="async" src="{{ p.logo }}" alt="Logo {{ p.nom }}">{% else %}<span>{{ p.nom | truncate(14, true, "") }}</span>{% endif %}</div>
       <div>
@@ -26,7 +26,7 @@ permalink: /partenaires/
 </section>
 <section class="section section--lavande">
   <div class="wrap">
-    <h2 class="titre centre">{{ textes.partenaires.financeurs_titre }}</h2>
+    <h2 class="titre centre">{{ financeurs.titre }}</h2>
     <p class="chapeau centre">{{ financeurs.texte }}</p>
     <div class="grille grille--3 financeurs">
       {% for f in financeurs.liste %}
@@ -40,8 +40,8 @@ permalink: /partenaires/
 </section>
 <section class="section">
   <div class="wrap centre">
-    <h2 class="titre">{{ textes.partenaires.devenir_titre }}</h2>
-    <p class="chapeau centre">{{ textes.partenaires.devenir_texte }}</p>
+    <h2 class="titre">{{ partenaires.devenir_titre }}</h2>
+    <p class="chapeau centre">{{ partenaires.devenir_texte }}</p>
     <p class="hero__cta" style="justify-content:center"><a class="btn" href="/contact/">Nous contacter</a> <a class="btn btn--contour" href="/nous-soutenir/">Nous soutenir</a></p>
   </div>
 </section>

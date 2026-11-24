@@ -314,3 +314,19 @@ a.financeur[href]:hover { box-shadow: 0 8px 24px rgba(27,57,103,.16); }
   .partenaire { flex-direction: column; }
   .logos__img { width: 130px; height: 90px; }
 }
+
+/* Encadrés (blocs de page) */
+.encadres { display: grid; gap: 20px; margin: 36px 0; }
+.encadres--2 { grid-template-columns: repeat(2, 1fr); }
+.encadres--3 { grid-template-columns: repeat(3, 1fr); }
+.encadre { border-radius: var(--rayon); padding: 26px 28px; text-align: center; }
+.encadre h2 { font-size: 22px; margin: 0 0 10px; }
+.encadre p { margin: 0 0 12px; }
+.encadre p:last-child { margin-bottom: 0; }
+.encadre--lavande { background: var(--lavande); }
+.encadre--lavande h2 { color: var(--violet); }
+.encadre--bleu { background: linear-gradient(110deg, var(--marine), var(--bleu)); color: #fff; }
+.encadre--bleu h2 { color: #fff; }
+.encadre--bleu a:not(.btn) { color: #fff; }
+.encadres--3 .encadre { padding: 22px 18px; }
+@media (max-width: 760px) { .encadres--2, .encadres--3 { grid-template-columns: 1fr; } }

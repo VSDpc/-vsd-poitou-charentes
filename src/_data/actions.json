@@ -1,38 +1,41 @@
-[
-  {
-    "titre": "Écoute téléphonique et par mail",
-    "texte": "Un premier contact pour être écouté, informé et orienté, quel que soit le deuil que vous traversez.",
-    "icone": "telephone",
-    "lien": ""
-  },
-  {
-    "titre": "Entretien individuel",
-    "texte": "Un temps d'échange personnel et confidentiel avec un(e) bénévole formé(e) à l'écoute et à l'accompagnement.",
-    "icone": "personne",
-    "lien": ""
-  },
-  {
-    "titre": "Groupes d'entraide",
-    "texte": "Des groupes de parole réguliers à Niort et à La Rochelle : un cercle de soutien entre personnes endeuillées, animé par des bénévoles formés.",
-    "icone": "groupe",
-    "lien": "/se-faire-accompagner/#groupes"
-  },
-  {
-    "titre": "Cafés deuil",
-    "texte": "Un espace de parole libre et informel, ouvert à tous, pour parler du deuil autour d'un café.",
-    "icone": "cafe",
-    "lien": ""
-  },
-  {
-    "titre": "Conférences et ciné-débats",
-    "texte": "Des rencontres ouvertes au public pour lever le tabou de la mort et réfléchir ensemble au deuil.",
-    "icone": "conference",
-    "lien": ""
-  },
-  {
-    "titre": "Sensibilisation des professionnels",
-    "texte": "« Les chemins du deuil », niveaux I et II : des actions de sensibilisation destinées aux soignants, travailleurs sociaux et acteurs de terrain.",
-    "icone": "formation",
-    "lien": ""
-  }
-]
+{
+  "titre_accompagner": "Nos propositions d'accompagnement",
+  "liste": [
+    {
+      "titre": "Écoute téléphonique et par mail",
+      "texte": "Un premier contact pour être écouté, informé et orienté, quel que soit le deuil que vous traversez.",
+      "icone": "telephone",
+      "lien": ""
+    },
+    {
+      "titre": "Entretien individuel",
+      "texte": "Un temps d'échange personnel et confidentiel avec un(e) bénévole formé(e) à l'écoute et à l'accompagnement.",
+      "icone": "personne",
+      "lien": ""
+    },
+    {
+      "titre": "Groupes d'entraide",
+      "texte": "Des groupes de parole réguliers à Niort et à La Rochelle : un cercle de soutien entre personnes endeuillées, animé par des bénévoles formés.",
+      "icone": "groupe",
+      "lien": "/se-faire-accompagner/#groupes"
+    },
+    {
+      "titre": "Cafés deuil",
+      "texte": "Un espace de parole libre et informel, ouvert à tous, pour parler du deuil autour d'un café.",
+      "icone": "cafe",
+      "lien": ""
+    },
+    {
+      "titre": "Conférences et ciné-débats",
+      "texte": "Des rencontres ouvertes au public pour lever le tabou de la mort et réfléchir ensemble au deuil.",
+      "icone": "conference",
+      "lien": ""
+    },
+    {
+      "titre": "Sensibilisation des professionnels",
+      "texte": "« Les chemins du deuil », niveaux I et II : des actions de sensibilisation destinées aux soignants, travailleurs sociaux et acteurs de terrain.",
+      "icone": "formation",
+      "lien": ""
+    }
+  ]
+}

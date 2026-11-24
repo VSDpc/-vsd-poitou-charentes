@@ -8,6 +8,13 @@ seo_description: Réseau de psychologues pour les personnes endeuillées et les
   orphelins en Charente-Maritime, en partenariat avec la CPAM, la CAF et la MSA.
 image: /media/cine-debat.webp
 ordre: 3
+sections:
+  - type: encadre
+    titre: "Contacter RAPPEO 17"
+    texte: "Le réseau dispose de son propre site et d'un formulaire de contact."
+    bouton_texte: "Aller sur le site de RAPPEO 17"
+    bouton_lien: "rappeo"
+    fond: "Lavande"
 ---
 ## Un réseau de psychologues sur tout le département
 
