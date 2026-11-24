@@ -59,10 +59,11 @@ content:
         options:
           format: markdown
       - name: sections
-        label: Blocs (texte, bouton, image) affichés après le texte
+        label: Blocs (texte, bouton, image, encadré) affichés après le texte
         type: block
         list: true
         blockKey: type
+        description: "Plusieurs encadrés à la suite s'affichent côte à côte (3 maximum par ligne)."
         blocks:
           - name: texte
             label: Texte
@@ -95,6 +96,29 @@ content:
               - name: legende
                 label: Légende (facultatif)
                 type: string
+          - name: encadre
+            label: Encadré (fond coloré)
+            fields:
+              - name: titre
+                label: Titre
+                type: string
+              - name: texte
+                label: Texte
+                type: rich-text
+                options:
+                  format: markdown
+              - name: bouton_texte
+                label: Texte du bouton (facultatif)
+                type: string
+              - name: bouton_lien
+                label: Lien du bouton
+                description: "Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation (le lien enregistré dans Coordonnées et liens est alors utilisé)."
+                type: string
+              - name: fond
+                label: Couleur de fond
+                type: select
+                options:
+                  values: [Lavande, Bleu]
 
   # ---------- PAGES ----------
   - name: pages
@@ -153,10 +177,11 @@ content:
         options:
           format: markdown
       - name: sections
-        label: Blocs (texte, bouton, image) affichés après le texte
+        label: Blocs (texte, bouton, image, encadré) affichés après le texte
         type: block
         list: true
         blockKey: type
+        description: "Plusieurs encadrés à la suite s'affichent côte à côte (3 maximum par ligne)."
         blocks:
           - name: texte
             label: Texte
@@ -189,6 +214,29 @@ content:
               - name: legende
                 label: Légende (facultatif)
                 type: string
+          - name: encadre
+            label: Encadré (fond coloré)
+            fields:
+              - name: titre
+                label: Titre
+                type: string
+              - name: texte
+                label: Texte
+                type: rich-text
+                options:
+                  format: markdown
+              - name: bouton_texte
+                label: Texte du bouton (facultatif)
+                type: string
+              - name: bouton_lien
+                label: Lien du bouton
+                description: "Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation (le lien enregistré dans Coordonnées et liens est alors utilisé)."
+                type: string
+              - name: fond
+                label: Couleur de fond
+                type: select
+                options:
+                  values: [Lavande, Bleu]
 
   # ---------- PAGE D'ACCUEIL ----------
   - name: accueil
@@ -262,181 +310,45 @@ content:
         label: Bloc partenaires — phrase au-dessus des logos des financeurs
         type: string
 
-  # ---------- TEXTES DES ENCADRÉS ----------
-  - name: textes
-    label: Textes des encadrés (titres et blocs fixes des pages)
+  # ---------- PAGE CONTACT ----------
+  - name: contact
+    label: Page Contact (formulaire, urgence, page Merci)
     type: file
-    path: src/_data/textes.json
+    path: src/_data/contact.json
     format: json
     fields:
-      - name: accompagner
-        label: "Page Se faire accompagner"
-        type: object
-        fields:
-          - name: propositions_titre
-            label: "Titre des cartes d'accompagnement"
-            type: string
-          - name: groupes_titre
-            label: "Titre des groupes d'entraide"
-            type: string
-          - name: appel_titre
-            label: "Encadré sous les groupes — titre"
-            type: string
-          - name: appel_texte
-            label: "Encadré sous les groupes — texte"
-            type: text
-      - name: association
-        label: "Page L'association"
-        type: object
-        fields:
-          - name: valeurs_titre
-            label: "Titre des valeurs"
-            type: string
-          - name: valeurs_chapeau
-            label: "Phrase sous le titre des valeurs"
-            type: text
-          - name: equipe_titre
-            label: "Titre de l'équipe"
-            type: string
-          - name: bureau_titre
-            label: "Sous-titre du bureau"
-            type: string
-          - name: ca_titre
-            label: "Sous-titre du conseil d'administration"
-            type: string
-      - name: projets
-        label: "Page Nos projets"
-        type: object
-        fields:
-          - name: bouton
-            label: "Texte du bouton sous les projets"
-            type: string
-      - name: rappeo
-        label: "Page RAPPEO 17"
-        type: object
-        fields:
-          - name: contact_titre
-            label: "Encadré « Contacter RAPPEO 17 » — titre"
-            type: string
-          - name: contact_texte
-            label: "Encadré — texte"
-            type: text
-          - name: contact_bouton
-            label: "Encadré — texte du bouton"
-            type: string
-      - name: soutenir
-        label: "Page Nous soutenir (bandeau bleu du bas)"
-        type: object
-        fields:
-          - name: adherer_titre
-            label: "Adhérer — titre"
-            type: string
-          - name: adherer_texte
-            label: "Adhérer — texte"
-            type: text
-          - name: adherer_bouton
-            label: "Adhérer — bouton"
-            type: string
-          - name: don_titre
-            label: "Don — titre"
-            type: string
-          - name: don_texte
-            label: "Don — texte"
-            type: text
-          - name: don_bouton
-            label: "Don — bouton"
-            type: string
-          - name: mecenat_titre
-            label: "Mécénat — titre"
-            type: string
-          - name: mecenat_texte
-            label: "Mécénat — texte"
-            type: text
-          - name: mecenat_bouton
-            label: "Mécénat — bouton"
-            type: string
-      - name: partenaires
-        label: "Page Partenaires"
-        type: object
-        fields:
-          - name: intro
-            label: "Phrase d'introduction"
-            type: text
-          - name: financeurs_titre
-            label: "Titre des financeurs"
-            type: string
-          - name: devenir_titre
-            label: "Encadré « Devenir partenaire » — titre"
-            type: string
-          - name: devenir_texte
-            label: "Encadré — texte"
-            type: text
-      - name: contact
-        label: "Page Contact"
-        type: object
-        fields:
-          - name: coordonnees_titre
-            label: "Titre des coordonnées"
-            type: string
-          - name: urgence_titre
-            label: "Encadré urgence — titre"
-            type: string
-          - name: urgence_texte
-            label: "Encadré urgence — texte (numéros d'urgence : vérifier avant de modifier)"
-            type: rich-text
-            options:
-              format: markdown
+      - name: coordonnees_titre
+        label: Titre des coordonnées
+        type: string
+      - name: urgence_titre
+        label: Encadré urgence — titre
+        type: string
+      - name: urgence_texte
+        label: "Encadré urgence — texte (vérifier les numéros et leurs liens d'appel avant de modifier)"
+        type: rich-text
+        options:
+          format: markdown
       - name: formulaire
-        label: "Page Contact — formulaire et mention données personnelles"
-        description: "Attention : la mention et la case à cocher sont exigées par le RGPD. Si vous changez un prestataire, la durée de conservation ou l'adresse, modifiez aussi la page Mentions légales."
+        label: Formulaire et mention données personnelles
+        description: "La case à cocher et la mention sont exigées par le RGPD. Si vous changez un prestataire, la durée de conservation ou l'adresse, modifiez aussi la page Mentions légales."
         type: object
         fields:
-          - name: label_nom
-            label: "Champ nom — intitulé"
-            type: string
-          - name: label_telephone
-            label: "Champ téléphone — intitulé"
-            type: string
-          - name: label_email
-            label: "Champ e-mail — intitulé"
-            type: string
-          - name: label_objet
-            label: "Liste « Votre demande concerne » — intitulé"
-            type: string
-          - name: objets
-            label: "Choix proposés dans la liste"
-            type: string
-            list: true
-          - name: label_message
-            label: "Champ message — intitulé"
-            type: string
-          - name: consentement
-            label: "Case à cocher obligatoire (consentement)"
-            type: text
+          - { name: label_nom, label: Champ nom — intitulé, type: string }
+          - { name: label_telephone, label: Champ téléphone — intitulé, type: string }
+          - { name: label_email, label: Champ e-mail — intitulé, type: string }
+          - { name: label_objet, label: Liste « Votre demande concerne » — intitulé, type: string }
+          - { name: objets, label: Choix proposés dans la liste, type: string, list: true }
+          - { name: label_message, label: Champ message — intitulé, type: string }
+          - { name: consentement, label: Case à cocher obligatoire (consentement), type: text }
           - name: mention
-            label: "Mention données personnelles sous le formulaire"
+            label: Mention données personnelles sous le formulaire
             type: rich-text
             options:
               format: markdown
-          - name: bouton
-            label: "Bouton d'envoi"
-            type: string
-      - name: merci
-        label: "Page Merci (après envoi du formulaire)"
-        type: object
-        fields:
-          - name: texte
-            label: "Texte (le numéro de téléphone s'ajoute automatiquement à la fin)"
-            type: text
-      - name: pied
-        label: "Pied de page"
-        type: object
-        fields:
-          - name: presentation
-            label: "Présentation de l'association"
-            type: rich-text
-            options:
-              format: markdown
+          - { name: bouton, label: Bouton d'envoi, type: string }
+      - name: merci_texte
+        label: "Page Merci (après envoi) — texte (le téléphone s'ajoute à la fin)"
+        type: text
 
   # ---------- NOS ACTIONS ----------
   - name: actions
@@ -444,22 +356,29 @@ content:
     type: file
     path: src/_data/actions.json
     format: json
-    list: true
     fields:
-      - name: titre
-        label: Titre
+      - name: titre_accompagner
+        label: "Titre des cartes sur la page Se faire accompagner"
         type: string
-      - name: texte
-        label: Description
-        type: text
-      - name: lien
-        label: Lien (facultatif, ex. /se-faire-accompagner/#groupes)
-        type: string
-      - name: icone
-        label: Pictogramme
-        type: select
-        options:
-          values: [telephone, personne, groupe, cafe, conference, formation]
+      - name: liste
+        label: Actions (cartes)
+        type: object
+        list: true
+        fields:
+          - name: titre
+            label: Titre
+            type: string
+          - name: texte
+            label: Description
+            type: text
+          - name: lien
+            label: Lien (facultatif, ex. /se-faire-accompagner/#groupes)
+            type: string
+          - name: icone
+            label: Pictogramme
+            type: select
+            options:
+              values: [telephone, personne, groupe, cafe, conference, formation]
 
   # ---------- GROUPES D'ENTRAIDE ----------
   - name: groupes
@@ -467,25 +386,38 @@ content:
     type: file
     path: src/_data/groupes.json
     format: json
-    list: true
     fields:
-      - name: ville
-        label: Ville
+      - name: titre
+        label: "Titre de la section (page Se faire accompagner)"
         type: string
-      - name: theme
-        label: Thème (ex. Adultes — tous deuils, Parents endeuillés)
+      - name: liste
+        label: Groupes
+        type: object
+        list: true
+        fields:
+          - name: ville
+            label: Ville
+            type: string
+          - name: theme
+            label: Thème (ex. Adultes — tous deuils, Parents endeuillés)
+            type: string
+          - name: departement
+            label: Département
+            type: string
+          - name: infos
+            label: Informations pratiques
+            type: text
+          - name: statut
+            label: Statut
+            type: select
+            options:
+              values: [actif, projet]
+      - name: appel_titre
+        label: "Encadré sous les groupes — titre"
         type: string
-      - name: departement
-        label: Département
-        type: string
-      - name: infos
-        label: Informations pratiques
+      - name: appel_texte
+        label: "Encadré sous les groupes — texte"
         type: text
-      - name: statut
-        label: Statut
-        type: select
-        options:
-          values: [actif, projet]
 
   # ---------- PROJETS ----------
   - name: projets
@@ -493,35 +425,55 @@ content:
     type: file
     path: src/_data/projets.json
     format: json
-    list: true
     fields:
-      - name: titre
-        label: Titre
+      - name: liste
+        label: Projets
+        type: object
+        list: true
+        fields:
+          - name: titre
+            label: Titre
+            type: string
+          - name: texte
+            label: Description
+            type: text
+      - name: bouton
+        label: "Texte du bouton sous les projets"
         type: string
-      - name: texte
-        label: Description
-        type: text
 
   # ---------- PARTENAIRES ----------
   - name: partenaires
-    label: Partenaires
+    label: Partenaires (et page Partenaires)
     type: file
     path: src/_data/partenaires.json
     format: json
-    list: true
     fields:
-      - name: nom
-        label: Nom
-        type: string
-      - name: description
-        label: Description
+      - name: intro
+        label: "Phrase d'introduction de la page Partenaires"
         type: text
-      - name: url
-        label: Adresse du site (https://…)
+      - name: liste
+        label: Partenaires
+        type: object
+        list: true
+        fields:
+          - name: nom
+            label: Nom
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: url
+            label: Adresse du site (https://…)
+            type: string
+          - name: logo
+            label: Logo (facultatif)
+            type: image
+      - name: devenir_titre
+        label: "Encadré « Devenir partenaire » — titre"
         type: string
-      - name: logo
-        label: Logo (facultatif)
-        type: image
+      - name: devenir_texte
+        label: "Encadré « Devenir partenaire » — texte"
+        type: text
 
   # ---------- FINANCEURS ----------
   - name: financeurs
@@ -530,6 +482,9 @@ content:
     path: src/_data/financeurs.json
     format: json
     fields:
+      - name: titre
+        label: "Titre de la section (page Partenaires)"
+        type: string
       - name: texte
         label: Phrase d'introduction
         type: text
@@ -550,6 +505,12 @@ content:
     path: src/_data/equipe.json
     format: json
     fields:
+      - name: titre
+        label: "Titre de la section (page L'association)"
+        type: string
+      - name: bureau_titre
+        label: "Sous-titre du bureau"
+        type: string
       - name: bureau
         label: Le bureau
         type: object
@@ -558,6 +519,9 @@ content:
           - { name: nom, label: Nom, type: string }
           - { name: fonction, label: Fonction, type: string }
           - { name: profession, label: Profession, type: string }
+      - name: ca_titre
+        label: "Sous-titre du conseil d'administration"
+        type: string
       - name: ca
         label: Conseil d'administration
         type: object
@@ -573,14 +537,24 @@ content:
     type: file
     path: src/_data/valeurs.json
     format: json
-    list: true
     fields:
       - name: titre
-        label: Valeur
+        label: "Titre de la section (page L'association)"
         type: string
-      - name: texte
-        label: Explication
+      - name: chapeau
+        label: "Phrase sous le titre"
         type: text
+      - name: liste
+        label: Valeurs
+        type: object
+        list: true
+        fields:
+          - name: titre
+            label: Valeur
+            type: string
+          - name: texte
+            label: Explication
+            type: text
 
   # ---------- RÉFÉRENCEMENT DES PAGES FIXES ----------
   - name: technique
@@ -663,6 +637,11 @@ content:
       - { name: don_url, label: Lien HelloAsso — dons, type: string }
       - { name: federation_url, label: Site de la Fédération, type: string }
       - { name: rappeo_url, label: Site de RAPPEO 17, type: string }
+      - name: presentation_pied
+        label: Présentation en pied de page
+        type: rich-text
+        options:
+          format: markdown
       - { name: rna, label: N° RNA, type: string }
       - { name: siret, label: SIRET, type: string }
       - { name: contact_intro, label: Texte d'introduction de la page Contact, type: text }
