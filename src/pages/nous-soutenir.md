@@ -6,24 +6,24 @@ ordre: 5
 seo_titre: "Adhérer, faire un don, devenir bénévole — Vivre Son Deuil PC"
 seo_description: "Soutenez l'accompagnement gratuit des personnes endeuillées : adhésion, don avec réduction d'impôt de 66 %, mécénat ou bénévolat."
 sections:
-  - type: encadre
-    titre: "Adhérer"
-    texte: "Rejoignez l'association pour l'année en cours."
-    bouton_texte: "J'adhère sur HelloAsso"
-    bouton_lien: "adhesion"
+  - type: bandeau
     fond: "Bleu"
-  - type: encadre
-    titre: "Faire un don"
-    texte: "Paiement sécurisé, reçu fiscal envoyé automatiquement."
-    bouton_texte: "Je fais un don"
-    bouton_lien: "don"
-    fond: "Bleu"
-  - type: encadre
-    titre: "Mécénat"
-    texte: "Échangeons sur votre projet de soutien."
-    bouton_texte: "Nous contacter"
-    bouton_lien: "/contact/"
-    fond: "Bleu"
+    colonnes:
+      - titre: "Adhérer"
+        texte: "Rejoignez l'association pour l'année en cours."
+        bouton_texte: "J'adhère sur HelloAsso"
+        bouton_lien: "adhesion"
+        bouton_style: "Jaune"
+      - titre: "Faire un don"
+        texte: "Paiement sécurisé, reçu fiscal envoyé automatiquement."
+        bouton_texte: "Je fais un don"
+        bouton_lien: "don"
+        bouton_style: "Jaune"
+      - titre: "Mécénat"
+        texte: "Échangeons sur votre projet de soutien."
+        bouton_texte: "Nous contacter"
+        bouton_lien: "/contact/"
+        bouton_style: "Contour"
 ---
 
 ## Adhérer à l'association

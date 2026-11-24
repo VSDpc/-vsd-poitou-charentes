@@ -27,14 +27,24 @@ layout: base.njk
 </section>
 {% endif %}
 
+{%- set segments = sections | segmenterBlocs %}
 <section class="section{% if slug == 'se-faire-accompagner' %} section--lavande{% endif %}">
   <div class="wrap prose">
     {%- set btnAdh = '<p><a class="btn" href="' + site.adhesion_url + '">J\'adhère sur HelloAsso</a></p>' -%}
     {%- set btnDon = '<p><a class="btn" href="' + site.don_url + '">Je fais un don sur HelloAsso</a></p>' -%}
     {{ content | replace("<p>[[BOUTON_ADHERER]]</p>", btnAdh) | replace("<p>[[BOUTON_DON]]</p>", btnDon) | replace("[[BOUTON_ADHERER]]", btnAdh) | replace("[[BOUTON_DON]]", btnDon) | safe }}
-    {% include "partials/blocs.njk" %}
+    {%- if segments.length and segments[0].type == "blocs" %}{% set blocsListe = segments[0].items %}{% include "partials/blocs.njk" %}{% endif %}
   </div>
 </section>
+{%- for seg in segments %}
+  {%- if seg.type == "bandeau" %}
+    {%- set b = seg.bloc %}{% set boite = false %}{% include "partials/bandeau-bloc.njk" %}
+  {%- elif not loop.first %}
+<section class="section section--suite">
+  <div class="wrap prose">{% set blocsListe = seg.items %}{% include "partials/blocs.njk" %}</div>
+</section>
+  {%- endif %}
+{%- endfor %}
 
 {% if slug == "se-faire-accompagner" %}
 <section class="section" id="groupes">

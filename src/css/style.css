@@ -315,18 +315,29 @@ a.financeur[href]:hover { box-shadow: 0 8px 24px rgba(27,57,103,.16); }
   .logos__img { width: 130px; height: 90px; }
 }
 
-/* Encadrés (blocs de page) */
-.encadres { display: grid; gap: 20px; margin: 36px 0; }
-.encadres--2 { grid-template-columns: repeat(2, 1fr); }
-.encadres--3 { grid-template-columns: repeat(3, 1fr); }
-.encadre { border-radius: var(--rayon); padding: 26px 28px; text-align: center; }
-.encadre h2 { font-size: 22px; margin: 0 0 10px; }
-.encadre p { margin: 0 0 12px; }
-.encadre p:last-child { margin-bottom: 0; }
-.encadre--lavande { background: var(--lavande); }
-.encadre--lavande h2 { color: var(--violet); }
-.encadre--bleu { background: linear-gradient(110deg, var(--marine), var(--bleu)); color: #fff; }
-.encadre--bleu h2 { color: #fff; }
-.encadre--bleu a:not(.btn) { color: #fff; }
-.encadres--3 .encadre { padding: 22px 18px; }
-@media (max-width: 760px) { .encadres--2, .encadres--3 { grid-template-columns: 1fr; } }
+/* Bandeaux (blocs de page) */
+.bandeau-bloc--lavande { background: var(--lavande); }
+.bandeau-bloc--bleu { background: linear-gradient(110deg, var(--marine), var(--bleu)); color: #fff; }
+.bandeau-bloc--bleu h2, .bandeau-bloc--bleu h3, .bandeau-bloc--bleu .titre { color: #fff; }
+.bandeau-bloc--bleu a:not(.btn) { color: #fff; }
+.bandeau-bloc__texte p:last-child { margin-bottom: 0; }
+.bandeau-bloc .chapeau:last-child, .bandeau-bloc .titre:last-child { margin-bottom: 0; }
+.bandeau-bloc__bouton { margin: 28px 0 0; }
+.colonnes { display: grid; gap: 28px; }
+.colonnes--2 { grid-template-columns: repeat(2, 1fr); }
+.colonnes--3 { grid-template-columns: repeat(3, 1fr); }
+.colonne { border-radius: var(--rayon); padding: 28px; }
+.colonne h2, .colonne h3 { font-size: 28px; }
+.colonne p { margin: 0 0 1em; }
+.bandeau-bloc--bleu .colonne { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); }
+.bandeau-bloc--lavande .colonne { background: #fff; }
+.bandeau-bloc--blanc .colonne { background: var(--lavande); }
+.bandeau-bloc--lavande .colonne h2, .bandeau-bloc--lavande .colonne h3, .bandeau-bloc--blanc .colonne h2, .bandeau-bloc--blanc .colonne h3 { color: var(--marine); }
+.bandeau-boite { border-radius: var(--rayon); padding: 32px; margin: 32px 0; }
+.bandeau-boite.bandeau-bloc--blanc { padding: 0; }
+.bandeau-boite .colonnes--3 { grid-template-columns: 1fr; }
+.section--suite { padding-top: 0; }
+.bandeau-bloc + .section--suite { padding-top: 72px; }
+@media (max-width: 760px) { .colonnes--2, .colonnes--3 { grid-template-columns: 1fr; } }
+.bandeau-bloc .colonnes { margin-top: 8px; }
+.bandeau-bloc .titre + .colonnes, .bandeau-bloc .bandeau-bloc__texte + .colonnes { margin-top: 28px; }

@@ -1,144 +1,245 @@
-# Back-office Pages CMS — https://app.pagescms.org
+# Configuration du back-office (Pages CMS)
 media:
   input: src/media
   output: /media
-
 content:
-  # ---------- ACTUALITÉS ----------
-  - name: actualites
-    label: Actualités
-    type: collection
-    path: src/actualites
-    filename: "{year}-{month}-{day}-{primary}.md"
-    exclude: [actualites.11tydata.js]
-    view:
-      fields: [title, date, brouillon]
-      primary: title
-      sort: [date, title]
-      default:
-        sort: date
-        order: desc
+- name: actualites
+  label: Actualités
+  type: collection
+  path: src/actualites
+  filename: '{year}-{month}-{day}-{primary}.md'
+  exclude:
+  - actualites.11tydata.js
+  view:
     fields:
-      - name: title
-        label: Titre
-        type: string
-        required: true
-      - name: date
-        label: Date de publication
-        type: date
-        required: true
-      - name: image
-        label: Image principale
-        type: image
-      - name: image_alt
-        label: "Description de l'image (texte alternatif pour Google et les malvoyants)"
-        description: "Décrire ce que montre l'image en quelques mots, par exemple : Mains réunies d'un groupe de parole."
-        type: string
-      - name: resume
-        label: Résumé (affiché sur les cartes)
-        type: text
-      - name: seo_titre
-        label: "Google — titre de la page (facultatif, 60 caractères environ)"
-        description: "Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page."
-        type: string
-        options:
-          maxlength: 80
-      - name: seo_description
-        label: "Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)"
-        description: "Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages."
-        type: text
-        options:
-          maxlength: 170
-      - name: brouillon
-        label: Brouillon (cocher pour ne pas publier)
-        type: boolean
-        default: false
-      - name: body
-        label: Texte de l'article
+    - title
+    - date
+    - brouillon
+    primary: title
+    sort:
+    - date
+    - title
+    default:
+      sort: date
+      order: desc
+  fields:
+  - name: title
+    label: Titre
+    type: string
+    required: true
+  - name: date
+    label: Date de publication
+    type: date
+    required: true
+  - name: image
+    label: Image principale
+    type: image
+  - name: image_alt
+    label: Description de l'image (texte alternatif pour Google et les malvoyants)
+    description: 'Décrire ce que montre l''image en quelques mots, par exemple : Mains réunies d''un groupe de parole.'
+    type: string
+  - name: resume
+    label: Résumé (affiché sur les cartes)
+    type: text
+  - name: seo_titre
+    label: Google — titre de la page (facultatif, 60 caractères environ)
+    description: Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page.
+    type: string
+    options:
+      maxlength: 80
+  - name: seo_description
+    label: Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)
+    description: Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages.
+    type: text
+    options:
+      maxlength: 170
+  - name: brouillon
+    label: Brouillon (cocher pour ne pas publier)
+    type: boolean
+    default: false
+  - name: body
+    label: Texte de l'article
+    type: rich-text
+    options:
+      format: markdown
+  - name: sections
+    label: Blocs affichés après le texte (texte, bouton, image, bandeau)
+    type: block
+    list: true
+    blockKey: type
+    description: Les blocs s'affichent dans l'ordre. Un bandeau occupe toute la largeur de la page.
+    blocks:
+    - name: texte
+      label: Texte
+      fields:
+      - name: texte
+        label: Texte
         type: rich-text
         options:
           format: markdown
-      - name: sections
-        label: Blocs (texte, bouton, image, encadré) affichés après le texte
-        type: block
+    - name: bouton
+      label: Bouton
+      fields:
+      - name: texte
+        label: Texte du bouton (ex. Me parler de votre projet)
+        type: string
+      - name: lien
+        label: Lien (ex. /contact/ ou https://…)
+        type: string
+      - name: style
+        label: Style
+        type: select
+        options:
+          values:
+          - Violet
+          - Jaune
+          - Contour
+    - name: image
+      label: Image
+      fields:
+      - name: image
+        label: Image
+        type: image
+      - name: legende
+        label: Légende (facultatif)
+        type: string
+    - name: bandeau
+      label: Bandeau (pleine largeur, fond coloré)
+      fields:
+      - name: fond
+        label: Couleur de fond
+        type: select
+        options:
+          values:
+          - Lavande
+          - Bleu
+          - Blanc
+      - name: titre
+        label: Titre (facultatif)
+        type: string
+      - name: texte
+        label: Texte (facultatif)
+        type: rich-text
+        options:
+          format: markdown
+      - name: colonnes
+        label: Colonnes (facultatif, 1 à 3 cases côte à côte)
+        type: object
         list: true
-        blockKey: type
-        description: "Plusieurs encadrés à la suite s'affichent côte à côte (3 maximum par ligne)."
-        blocks:
-          - name: texte
-            label: Texte
-            fields:
-              - name: texte
-                label: Texte
-                type: rich-text
-                options:
-                  format: markdown
-          - name: bouton
-            label: Bouton
-            fields:
-              - name: texte
-                label: Texte du bouton (ex. Me parler de votre projet)
-                type: string
-              - name: lien
-                label: Lien (ex. /contact/ ou https://…)
-                type: string
-              - name: style
-                label: Style
-                type: select
-                options:
-                  values: [Violet, Jaune, Contour]
-          - name: image
-            label: Image
-            fields:
-              - name: image
-                label: Image
-                type: image
-              - name: legende
-                label: Légende (facultatif)
-                type: string
-          - name: encadre
-            label: Encadré (fond coloré)
-            fields:
-              - name: titre
-                label: Titre
-                type: string
-              - name: texte
-                label: Texte
-                type: rich-text
-                options:
-                  format: markdown
-              - name: bouton_texte
-                label: Texte du bouton (facultatif)
-                type: string
-              - name: bouton_lien
-                label: Lien du bouton
-                description: "Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation (le lien enregistré dans Coordonnées et liens est alors utilisé)."
-                type: string
-              - name: fond
-                label: Couleur de fond
-                type: select
-                options:
-                  values: [Lavande, Bleu]
-
-  # ---------- PAGES ----------
-  - name: pages
-    label: Pages du site
-    type: collection
-    path: src/pages
-    exclude: [pages.11tydata.js]
-    view:
-      fields: [title]
-      primary: title
-      sort: [ordre]
-      default:
-        sort: ordre
-        order: asc
-    filename: "{primary}.md"
-    operations:
-      create: true
-      delete: true
-      rename: false
+        fields:
+        - name: titre
+          label: Titre de la case
+          type: string
+        - name: texte
+          label: Texte de la case
+          type: rich-text
+          options:
+            format: markdown
+        - name: bouton_texte
+          label: Texte du bouton (facultatif)
+          type: string
+        - name: bouton_lien
+          label: Lien du bouton
+          description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+          type: string
+        - name: bouton_style
+          label: Style du bouton
+          type: select
+          options:
+            values:
+            - Jaune
+            - Contour
+            - Violet
+      - name: bouton_texte
+        label: Bouton sous le bandeau — texte (facultatif)
+        type: string
+      - name: bouton_lien
+        label: Bouton sous le bandeau — lien
+        description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+        type: string
+- name: pages-du-site
+  label: Pages du site
+  type: group
+  items:
+  - name: accueil
+    label: Accueil
+    type: file
+    path: src/_data/accueil.json
+    format: json
     fields:
+    - name: hero_titre
+      label: Grand titre (mettre *entre étoiles* pour l'italique)
+      type: string
+    - name: hero_texte
+      label: Phrase sous le titre
+      type: text
+    - name: hero_image
+      label: Photo de fond
+      type: image
+    - name: missions_titre
+      label: Titre de la liste des missions
+      type: string
+    - name: missions
+      label: Missions (liste à puces jaunes)
+      type: string
+      list: true
+    - name: appel_titre
+      label: Bloc « personnes en deuil » — titre
+      type: string
+    - name: appel_texte
+      label: Bloc « personnes en deuil » — texte
+      type: text
+    - name: pro_titre
+      label: Bloc « bénévoles et professionnels » — titre
+      type: string
+    - name: pro_texte
+      label: Bloc « bénévoles et professionnels » — texte
+      type: text
+    - name: citation
+      label: Citation
+      type: text
+    - name: citation_auteur
+      label: Auteur de la citation
+      type: string
+    - name: actions_titre
+      label: Bloc « Nos actions » — titre
+      type: string
+    - name: actions_chapeau
+      label: Bloc « Nos actions » — phrase d'introduction
+      type: text
+    - name: actus_titre
+      label: Bloc actualités — titre
+      type: string
+    - name: rappeo_surtitre
+      label: Bandeau RAPPEO 17 — petit texte au-dessus du titre
+      type: string
+    - name: rappeo_titre
+      label: Bandeau RAPPEO 17 — titre
+      type: string
+    - name: rappeo_texte
+      label: Bandeau RAPPEO 17 — texte
+      type: text
+    - name: rappeo_image
+      label: Bandeau RAPPEO 17 — image (affiche)
+      type: image
+    - name: rappeo_image_alt
+      label: Bandeau RAPPEO 17 — description de l'image
+      type: string
+    - name: partenaires_titre
+      label: Bloc partenaires — titre
+      type: string
+    - name: financeurs_phrase
+      label: Bloc partenaires — phrase au-dessus des logos des financeurs
+      type: string
+  - name: g-association
+    label: L'association
+    type: group
+    items:
+    - name: page-association
+      label: Texte de la page
+      type: file
+      path: src/pages/association.md
+      fields:
       - name: title
         label: Titre de la page
         type: string
@@ -154,14 +255,14 @@ content:
         label: Phrase d'introduction (bandeau du haut)
         type: text
       - name: seo_titre
-        label: "Google — titre de la page (facultatif, 60 caractères environ)"
-        description: "Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page."
+        label: Google — titre de la page (facultatif, 60 caractères environ)
+        description: Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page.
         type: string
         options:
           maxlength: 80
       - name: seo_description
-        label: "Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)"
-        description: "Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages."
+        label: Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)
+        description: Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages.
         type: text
         options:
           maxlength: 170
@@ -177,313 +278,859 @@ content:
         options:
           format: markdown
       - name: sections
-        label: Blocs (texte, bouton, image, encadré) affichés après le texte
+        label: Blocs affichés après le texte (texte, bouton, image, bandeau)
         type: block
         list: true
         blockKey: type
-        description: "Plusieurs encadrés à la suite s'affichent côte à côte (3 maximum par ligne)."
+        description: Les blocs s'affichent dans l'ordre. Un bandeau occupe toute la largeur de la page.
         blocks:
+        - name: texte
+          label: Texte
+          fields:
           - name: texte
             label: Texte
-            fields:
-              - name: texte
-                label: Texte
-                type: rich-text
-                options:
-                  format: markdown
-          - name: bouton
-            label: Bouton
-            fields:
-              - name: texte
-                label: Texte du bouton (ex. Me parler de votre projet)
-                type: string
-              - name: lien
-                label: Lien (ex. /contact/ ou https://…)
-                type: string
-              - name: style
-                label: Style
-                type: select
-                options:
-                  values: [Violet, Jaune, Contour]
-          - name: image
-            label: Image
-            fields:
-              - name: image
-                label: Image
-                type: image
-              - name: legende
-                label: Légende (facultatif)
-                type: string
-          - name: encadre
-            label: Encadré (fond coloré)
-            fields:
-              - name: titre
-                label: Titre
-                type: string
-              - name: texte
-                label: Texte
-                type: rich-text
-                options:
-                  format: markdown
-              - name: bouton_texte
-                label: Texte du bouton (facultatif)
-                type: string
-              - name: bouton_lien
-                label: Lien du bouton
-                description: "Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation (le lien enregistré dans Coordonnées et liens est alors utilisé)."
-                type: string
-              - name: fond
-                label: Couleur de fond
-                type: select
-                options:
-                  values: [Lavande, Bleu]
-
-  # ---------- PAGE D'ACCUEIL ----------
-  - name: accueil
-    label: Page d'accueil
-    type: file
-    path: src/_data/accueil.json
-    format: json
-    fields:
-      - name: hero_titre
-        label: Grand titre (mettre *entre étoiles* pour l'italique)
-        type: string
-      - name: hero_texte
-        label: Phrase sous le titre
-        type: text
-      - name: hero_image
-        label: Photo de fond
-        type: image
-      - name: missions_titre
-        label: Titre de la liste des missions
-        type: string
-      - name: missions
-        label: Missions (liste à puces jaunes)
-        type: string
-        list: true
-      - name: appel_titre
-        label: Bloc « personnes en deuil » — titre
-        type: string
-      - name: appel_texte
-        label: Bloc « personnes en deuil » — texte
-        type: text
-      - name: pro_titre
-        label: Bloc « bénévoles et professionnels » — titre
-        type: string
-      - name: pro_texte
-        label: Bloc « bénévoles et professionnels » — texte
-        type: text
-      - name: citation
-        label: Citation
-        type: text
-      - name: citation_auteur
-        label: Auteur de la citation
-        type: string
-      - name: actions_titre
-        label: Bloc « Nos actions » — titre
-        type: string
-      - name: actions_chapeau
-        label: Bloc « Nos actions » — phrase d'introduction
-        type: text
-      - name: actus_titre
-        label: Bloc actualités — titre
-        type: string
-      - name: rappeo_surtitre
-        label: Bandeau RAPPEO 17 — petit texte au-dessus du titre
-        type: string
-      - name: rappeo_titre
-        label: Bandeau RAPPEO 17 — titre
-        type: string
-      - name: rappeo_texte
-        label: Bandeau RAPPEO 17 — texte
-        type: text
-      - name: rappeo_image
-        label: Bandeau RAPPEO 17 — image (affiche)
-        type: image
-      - name: rappeo_image_alt
-        label: Bandeau RAPPEO 17 — description de l'image
-        type: string
-      - name: partenaires_titre
-        label: Bloc partenaires — titre
-        type: string
-      - name: financeurs_phrase
-        label: Bloc partenaires — phrase au-dessus des logos des financeurs
-        type: string
-
-  # ---------- PAGE CONTACT ----------
-  - name: contact
-    label: Page Contact (formulaire, urgence, page Merci)
-    type: file
-    path: src/_data/contact.json
-    format: json
-    fields:
-      - name: coordonnees_titre
-        label: Titre des coordonnées
-        type: string
-      - name: urgence_titre
-        label: Encadré urgence — titre
-        type: string
-      - name: urgence_texte
-        label: "Encadré urgence — texte (vérifier les numéros et leurs liens d'appel avant de modifier)"
-        type: rich-text
-        options:
-          format: markdown
-      - name: formulaire
-        label: Formulaire et mention données personnelles
-        description: "La case à cocher et la mention sont exigées par le RGPD. Si vous changez un prestataire, la durée de conservation ou l'adresse, modifiez aussi la page Mentions légales."
-        type: object
-        fields:
-          - { name: label_nom, label: Champ nom — intitulé, type: string }
-          - { name: label_telephone, label: Champ téléphone — intitulé, type: string }
-          - { name: label_email, label: Champ e-mail — intitulé, type: string }
-          - { name: label_objet, label: Liste « Votre demande concerne » — intitulé, type: string }
-          - { name: objets, label: Choix proposés dans la liste, type: string, list: true }
-          - { name: label_message, label: Champ message — intitulé, type: string }
-          - { name: consentement, label: Case à cocher obligatoire (consentement), type: text }
-          - name: mention
-            label: Mention données personnelles sous le formulaire
             type: rich-text
             options:
               format: markdown
-          - { name: bouton, label: Bouton d'envoi, type: string }
-      - name: merci_texte
-        label: "Page Merci (après envoi) — texte (le téléphone s'ajoute à la fin)"
+        - name: bouton
+          label: Bouton
+          fields:
+          - name: texte
+            label: Texte du bouton (ex. Me parler de votre projet)
+            type: string
+          - name: lien
+            label: Lien (ex. /contact/ ou https://…)
+            type: string
+          - name: style
+            label: Style
+            type: select
+            options:
+              values:
+              - Violet
+              - Jaune
+              - Contour
+        - name: image
+          label: Image
+          fields:
+          - name: image
+            label: Image
+            type: image
+          - name: legende
+            label: Légende (facultatif)
+            type: string
+        - name: bandeau
+          label: Bandeau (pleine largeur, fond coloré)
+          fields:
+          - name: fond
+            label: Couleur de fond
+            type: select
+            options:
+              values:
+              - Lavande
+              - Bleu
+              - Blanc
+          - name: titre
+            label: Titre (facultatif)
+            type: string
+          - name: texte
+            label: Texte (facultatif)
+            type: rich-text
+            options:
+              format: markdown
+          - name: colonnes
+            label: Colonnes (facultatif, 1 à 3 cases côte à côte)
+            type: object
+            list: true
+            fields:
+            - name: titre
+              label: Titre de la case
+              type: string
+            - name: texte
+              label: Texte de la case
+              type: rich-text
+              options:
+                format: markdown
+            - name: bouton_texte
+              label: Texte du bouton (facultatif)
+              type: string
+            - name: bouton_lien
+              label: Lien du bouton
+              description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+              type: string
+            - name: bouton_style
+              label: Style du bouton
+              type: select
+              options:
+                values:
+                - Jaune
+                - Contour
+                - Violet
+          - name: bouton_texte
+            label: Bouton sous le bandeau — texte (facultatif)
+            type: string
+          - name: bouton_lien
+            label: Bouton sous le bandeau — lien
+            description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+            type: string
+    - name: valeurs
+      label: Valeurs de la charte
+      type: file
+      path: src/_data/valeurs.json
+      format: json
+      fields:
+      - name: titre
+        label: Titre de la section (page L'association)
+        type: string
+      - name: chapeau
+        label: Phrase sous le titre
         type: text
-
-  # ---------- NOS ACTIONS ----------
-  - name: actions
-    label: Nos actions
-    type: file
-    path: src/_data/actions.json
-    format: json
-    fields:
+      - name: liste
+        label: Valeurs
+        type: object
+        list: true
+        fields:
+        - name: titre
+          label: Valeur
+          type: string
+        - name: texte
+          label: Explication
+          type: text
+    - name: equipe
+      label: L'équipe
+      type: file
+      path: src/_data/equipe.json
+      format: json
+      fields:
+      - name: titre
+        label: Titre de la section (page L'association)
+        type: string
+      - name: bureau_titre
+        label: Sous-titre du bureau
+        type: string
+      - name: bureau
+        label: Le bureau
+        type: object
+        list: true
+        fields:
+        - name: nom
+          label: Nom
+          type: string
+        - name: fonction
+          label: Fonction
+          type: string
+        - name: profession
+          label: Profession
+          type: string
+      - name: ca_titre
+        label: Sous-titre du conseil d'administration
+        type: string
+      - name: ca
+        label: Conseil d'administration
+        type: object
+        list: true
+        fields:
+        - name: nom
+          label: Nom
+          type: string
+        - name: fonction
+          label: Fonction
+          type: string
+        - name: profession
+          label: Profession
+          type: string
+  - name: g-accompagner
+    label: Se faire accompagner
+    type: group
+    items:
+    - name: page-se-faire-accompagner
+      label: Texte de la page
+      type: file
+      path: src/pages/se-faire-accompagner.md
+      fields:
+      - name: title
+        label: Titre de la page
+        type: string
+        required: true
+      - name: menu
+        label: Afficher dans le menu principal (pour une nouvelle page)
+        type: boolean
+        default: false
+      - name: titre_menu
+        label: Titre court dans le menu (facultatif)
+        type: string
+      - name: intro
+        label: Phrase d'introduction (bandeau du haut)
+        type: text
+      - name: seo_titre
+        label: Google — titre de la page (facultatif, 60 caractères environ)
+        description: Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page.
+        type: string
+        options:
+          maxlength: 80
+      - name: seo_description
+        label: Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)
+        description: Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages.
+        type: text
+        options:
+          maxlength: 170
+      - name: image
+        label: Image du bandeau
+        type: image
+      - name: ordre
+        label: Position (dans la liste et dans le menu, ex. 6)
+        type: number
+      - name: body
+        label: Contenu de la page
+        type: rich-text
+        options:
+          format: markdown
+      - name: sections
+        label: Blocs affichés après le texte (texte, bouton, image, bandeau)
+        type: block
+        list: true
+        blockKey: type
+        description: Les blocs s'affichent dans l'ordre. Un bandeau occupe toute la largeur de la page.
+        blocks:
+        - name: texte
+          label: Texte
+          fields:
+          - name: texte
+            label: Texte
+            type: rich-text
+            options:
+              format: markdown
+        - name: bouton
+          label: Bouton
+          fields:
+          - name: texte
+            label: Texte du bouton (ex. Me parler de votre projet)
+            type: string
+          - name: lien
+            label: Lien (ex. /contact/ ou https://…)
+            type: string
+          - name: style
+            label: Style
+            type: select
+            options:
+              values:
+              - Violet
+              - Jaune
+              - Contour
+        - name: image
+          label: Image
+          fields:
+          - name: image
+            label: Image
+            type: image
+          - name: legende
+            label: Légende (facultatif)
+            type: string
+        - name: bandeau
+          label: Bandeau (pleine largeur, fond coloré)
+          fields:
+          - name: fond
+            label: Couleur de fond
+            type: select
+            options:
+              values:
+              - Lavande
+              - Bleu
+              - Blanc
+          - name: titre
+            label: Titre (facultatif)
+            type: string
+          - name: texte
+            label: Texte (facultatif)
+            type: rich-text
+            options:
+              format: markdown
+          - name: colonnes
+            label: Colonnes (facultatif, 1 à 3 cases côte à côte)
+            type: object
+            list: true
+            fields:
+            - name: titre
+              label: Titre de la case
+              type: string
+            - name: texte
+              label: Texte de la case
+              type: rich-text
+              options:
+                format: markdown
+            - name: bouton_texte
+              label: Texte du bouton (facultatif)
+              type: string
+            - name: bouton_lien
+              label: Lien du bouton
+              description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+              type: string
+            - name: bouton_style
+              label: Style du bouton
+              type: select
+              options:
+                values:
+                - Jaune
+                - Contour
+                - Violet
+          - name: bouton_texte
+            label: Bouton sous le bandeau — texte (facultatif)
+            type: string
+          - name: bouton_lien
+            label: Bouton sous le bandeau — lien
+            description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+            type: string
+    - name: actions
+      label: Nos actions (cartes, aussi sur l'accueil)
+      type: file
+      path: src/_data/actions.json
+      format: json
+      fields:
       - name: titre_accompagner
-        label: "Titre des cartes sur la page Se faire accompagner"
+        label: Titre des cartes sur la page Se faire accompagner
         type: string
       - name: liste
         label: Actions (cartes)
         type: object
         list: true
         fields:
-          - name: titre
-            label: Titre
-            type: string
-          - name: texte
-            label: Description
-            type: text
-          - name: lien
-            label: Lien (facultatif, ex. /se-faire-accompagner/#groupes)
-            type: string
-          - name: icone
-            label: Pictogramme
-            type: select
-            options:
-              values: [telephone, personne, groupe, cafe, conference, formation]
-
-  # ---------- GROUPES D'ENTRAIDE ----------
-  - name: groupes
-    label: Groupes d'entraide
-    type: file
-    path: src/_data/groupes.json
-    format: json
-    fields:
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Description
+          type: text
+        - name: lien
+          label: Lien (facultatif, ex. /se-faire-accompagner/#groupes)
+          type: string
+        - name: icone
+          label: Pictogramme
+          type: select
+          options:
+            values:
+            - telephone
+            - personne
+            - groupe
+            - cafe
+            - conference
+            - formation
+    - name: groupes
+      label: Groupes d'entraide
+      type: file
+      path: src/_data/groupes.json
+      format: json
+      fields:
       - name: titre
-        label: "Titre de la section (page Se faire accompagner)"
+        label: Titre de la section (page Se faire accompagner)
         type: string
       - name: liste
         label: Groupes
         type: object
         list: true
         fields:
-          - name: ville
-            label: Ville
-            type: string
-          - name: theme
-            label: Thème (ex. Adultes — tous deuils, Parents endeuillés)
-            type: string
-          - name: departement
-            label: Département
-            type: string
-          - name: infos
-            label: Informations pratiques
-            type: text
-          - name: statut
-            label: Statut
-            type: select
-            options:
-              values: [actif, projet]
+        - name: ville
+          label: Ville
+          type: string
+        - name: theme
+          label: Thème (ex. Adultes — tous deuils, Parents endeuillés)
+          type: string
+        - name: departement
+          label: Département
+          type: string
+        - name: infos
+          label: Informations pratiques
+          type: text
+        - name: statut
+          label: Statut
+          type: select
+          options:
+            values:
+            - actif
+            - projet
       - name: appel_titre
-        label: "Encadré sous les groupes — titre"
+        label: Encadré sous les groupes — titre
         type: string
       - name: appel_texte
-        label: "Encadré sous les groupes — texte"
+        label: Encadré sous les groupes — texte
         type: text
-
-  # ---------- PROJETS ----------
-  - name: projets
-    label: Nos projets
+  - name: page-rappeo-17
+    label: RAPPEO 17
     type: file
-    path: src/_data/projets.json
-    format: json
+    path: src/pages/rappeo-17.md
     fields:
+    - name: title
+      label: Titre de la page
+      type: string
+      required: true
+    - name: menu
+      label: Afficher dans le menu principal (pour une nouvelle page)
+      type: boolean
+      default: false
+    - name: titre_menu
+      label: Titre court dans le menu (facultatif)
+      type: string
+    - name: intro
+      label: Phrase d'introduction (bandeau du haut)
+      type: text
+    - name: seo_titre
+      label: Google — titre de la page (facultatif, 60 caractères environ)
+      description: Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page.
+      type: string
+      options:
+        maxlength: 80
+    - name: seo_description
+      label: Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)
+      description: Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages.
+      type: text
+      options:
+        maxlength: 170
+    - name: image
+      label: Image du bandeau
+      type: image
+    - name: ordre
+      label: Position (dans la liste et dans le menu, ex. 6)
+      type: number
+    - name: body
+      label: Contenu de la page
+      type: rich-text
+      options:
+        format: markdown
+    - name: sections
+      label: Blocs affichés après le texte (texte, bouton, image, bandeau)
+      type: block
+      list: true
+      blockKey: type
+      description: Les blocs s'affichent dans l'ordre. Un bandeau occupe toute la largeur de la page.
+      blocks:
+      - name: texte
+        label: Texte
+        fields:
+        - name: texte
+          label: Texte
+          type: rich-text
+          options:
+            format: markdown
+      - name: bouton
+        label: Bouton
+        fields:
+        - name: texte
+          label: Texte du bouton (ex. Me parler de votre projet)
+          type: string
+        - name: lien
+          label: Lien (ex. /contact/ ou https://…)
+          type: string
+        - name: style
+          label: Style
+          type: select
+          options:
+            values:
+            - Violet
+            - Jaune
+            - Contour
+      - name: image
+        label: Image
+        fields:
+        - name: image
+          label: Image
+          type: image
+        - name: legende
+          label: Légende (facultatif)
+          type: string
+      - name: bandeau
+        label: Bandeau (pleine largeur, fond coloré)
+        fields:
+        - name: fond
+          label: Couleur de fond
+          type: select
+          options:
+            values:
+            - Lavande
+            - Bleu
+            - Blanc
+        - name: titre
+          label: Titre (facultatif)
+          type: string
+        - name: texte
+          label: Texte (facultatif)
+          type: rich-text
+          options:
+            format: markdown
+        - name: colonnes
+          label: Colonnes (facultatif, 1 à 3 cases côte à côte)
+          type: object
+          list: true
+          fields:
+          - name: titre
+            label: Titre de la case
+            type: string
+          - name: texte
+            label: Texte de la case
+            type: rich-text
+            options:
+              format: markdown
+          - name: bouton_texte
+            label: Texte du bouton (facultatif)
+            type: string
+          - name: bouton_lien
+            label: Lien du bouton
+            description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+            type: string
+          - name: bouton_style
+            label: Style du bouton
+            type: select
+            options:
+              values:
+              - Jaune
+              - Contour
+              - Violet
+        - name: bouton_texte
+          label: Bouton sous le bandeau — texte (facultatif)
+          type: string
+        - name: bouton_lien
+          label: Bouton sous le bandeau — lien
+          description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+          type: string
+  - name: g-projets
+    label: Nos projets
+    type: group
+    items:
+    - name: page-projets
+      label: Texte de la page
+      type: file
+      path: src/pages/projets.md
+      fields:
+      - name: title
+        label: Titre de la page
+        type: string
+        required: true
+      - name: menu
+        label: Afficher dans le menu principal (pour une nouvelle page)
+        type: boolean
+        default: false
+      - name: titre_menu
+        label: Titre court dans le menu (facultatif)
+        type: string
+      - name: intro
+        label: Phrase d'introduction (bandeau du haut)
+        type: text
+      - name: seo_titre
+        label: Google — titre de la page (facultatif, 60 caractères environ)
+        description: Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page.
+        type: string
+        options:
+          maxlength: 80
+      - name: seo_description
+        label: Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)
+        description: Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages.
+        type: text
+        options:
+          maxlength: 170
+      - name: image
+        label: Image du bandeau
+        type: image
+      - name: ordre
+        label: Position (dans la liste et dans le menu, ex. 6)
+        type: number
+      - name: body
+        label: Contenu de la page
+        type: rich-text
+        options:
+          format: markdown
+      - name: sections
+        label: Blocs affichés après le texte (texte, bouton, image, bandeau)
+        type: block
+        list: true
+        blockKey: type
+        description: Les blocs s'affichent dans l'ordre. Un bandeau occupe toute la largeur de la page.
+        blocks:
+        - name: texte
+          label: Texte
+          fields:
+          - name: texte
+            label: Texte
+            type: rich-text
+            options:
+              format: markdown
+        - name: bouton
+          label: Bouton
+          fields:
+          - name: texte
+            label: Texte du bouton (ex. Me parler de votre projet)
+            type: string
+          - name: lien
+            label: Lien (ex. /contact/ ou https://…)
+            type: string
+          - name: style
+            label: Style
+            type: select
+            options:
+              values:
+              - Violet
+              - Jaune
+              - Contour
+        - name: image
+          label: Image
+          fields:
+          - name: image
+            label: Image
+            type: image
+          - name: legende
+            label: Légende (facultatif)
+            type: string
+        - name: bandeau
+          label: Bandeau (pleine largeur, fond coloré)
+          fields:
+          - name: fond
+            label: Couleur de fond
+            type: select
+            options:
+              values:
+              - Lavande
+              - Bleu
+              - Blanc
+          - name: titre
+            label: Titre (facultatif)
+            type: string
+          - name: texte
+            label: Texte (facultatif)
+            type: rich-text
+            options:
+              format: markdown
+          - name: colonnes
+            label: Colonnes (facultatif, 1 à 3 cases côte à côte)
+            type: object
+            list: true
+            fields:
+            - name: titre
+              label: Titre de la case
+              type: string
+            - name: texte
+              label: Texte de la case
+              type: rich-text
+              options:
+                format: markdown
+            - name: bouton_texte
+              label: Texte du bouton (facultatif)
+              type: string
+            - name: bouton_lien
+              label: Lien du bouton
+              description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+              type: string
+            - name: bouton_style
+              label: Style du bouton
+              type: select
+              options:
+                values:
+                - Jaune
+                - Contour
+                - Violet
+          - name: bouton_texte
+            label: Bouton sous le bandeau — texte (facultatif)
+            type: string
+          - name: bouton_lien
+            label: Bouton sous le bandeau — lien
+            description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+            type: string
+    - name: projets
+      label: Liste des projets
+      type: file
+      path: src/_data/projets.json
+      format: json
+      fields:
       - name: liste
         label: Projets
         type: object
         list: true
         fields:
+        - name: titre
+          label: Titre
+          type: string
+        - name: texte
+          label: Description
+          type: text
+      - name: bouton
+        label: Texte du bouton sous les projets
+        type: string
+  - name: page-nous-soutenir
+    label: Nous soutenir
+    type: file
+    path: src/pages/nous-soutenir.md
+    fields:
+    - name: title
+      label: Titre de la page
+      type: string
+      required: true
+    - name: menu
+      label: Afficher dans le menu principal (pour une nouvelle page)
+      type: boolean
+      default: false
+    - name: titre_menu
+      label: Titre court dans le menu (facultatif)
+      type: string
+    - name: intro
+      label: Phrase d'introduction (bandeau du haut)
+      type: text
+    - name: seo_titre
+      label: Google — titre de la page (facultatif, 60 caractères environ)
+      description: Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page.
+      type: string
+      options:
+        maxlength: 80
+    - name: seo_description
+      label: Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)
+      description: Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages.
+      type: text
+      options:
+        maxlength: 170
+    - name: image
+      label: Image du bandeau
+      type: image
+    - name: ordre
+      label: Position (dans la liste et dans le menu, ex. 6)
+      type: number
+    - name: body
+      label: Contenu de la page
+      type: rich-text
+      options:
+        format: markdown
+    - name: sections
+      label: Blocs affichés après le texte (texte, bouton, image, bandeau)
+      type: block
+      list: true
+      blockKey: type
+      description: Les blocs s'affichent dans l'ordre. Un bandeau occupe toute la largeur de la page.
+      blocks:
+      - name: texte
+        label: Texte
+        fields:
+        - name: texte
+          label: Texte
+          type: rich-text
+          options:
+            format: markdown
+      - name: bouton
+        label: Bouton
+        fields:
+        - name: texte
+          label: Texte du bouton (ex. Me parler de votre projet)
+          type: string
+        - name: lien
+          label: Lien (ex. /contact/ ou https://…)
+          type: string
+        - name: style
+          label: Style
+          type: select
+          options:
+            values:
+            - Violet
+            - Jaune
+            - Contour
+      - name: image
+        label: Image
+        fields:
+        - name: image
+          label: Image
+          type: image
+        - name: legende
+          label: Légende (facultatif)
+          type: string
+      - name: bandeau
+        label: Bandeau (pleine largeur, fond coloré)
+        fields:
+        - name: fond
+          label: Couleur de fond
+          type: select
+          options:
+            values:
+            - Lavande
+            - Bleu
+            - Blanc
+        - name: titre
+          label: Titre (facultatif)
+          type: string
+        - name: texte
+          label: Texte (facultatif)
+          type: rich-text
+          options:
+            format: markdown
+        - name: colonnes
+          label: Colonnes (facultatif, 1 à 3 cases côte à côte)
+          type: object
+          list: true
+          fields:
           - name: titre
-            label: Titre
+            label: Titre de la case
             type: string
           - name: texte
-            label: Description
-            type: text
-      - name: bouton
-        label: "Texte du bouton sous les projets"
-        type: string
-
-  # ---------- PARTENAIRES ----------
-  - name: partenaires
-    label: Partenaires (et page Partenaires)
-    type: file
-    path: src/_data/partenaires.json
-    format: json
-    fields:
+            label: Texte de la case
+            type: rich-text
+            options:
+              format: markdown
+          - name: bouton_texte
+            label: Texte du bouton (facultatif)
+            type: string
+          - name: bouton_lien
+            label: Lien du bouton
+            description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+            type: string
+          - name: bouton_style
+            label: Style du bouton
+            type: select
+            options:
+              values:
+              - Jaune
+              - Contour
+              - Violet
+        - name: bouton_texte
+          label: Bouton sous le bandeau — texte (facultatif)
+          type: string
+        - name: bouton_lien
+          label: Bouton sous le bandeau — lien
+          description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+          type: string
+  - name: g-partenaires
+    label: Partenaires
+    type: group
+    items:
+    - name: partenaires
+      label: Partenaires et textes de la page
+      type: file
+      path: src/_data/partenaires.json
+      format: json
+      fields:
       - name: intro
-        label: "Phrase d'introduction de la page Partenaires"
+        label: Phrase d'introduction de la page Partenaires
         type: text
       - name: liste
         label: Partenaires
         type: object
         list: true
         fields:
-          - name: nom
-            label: Nom
-            type: string
-          - name: description
-            label: Description
-            type: text
-          - name: url
-            label: Adresse du site (https://…)
-            type: string
-          - name: logo
-            label: Logo (facultatif)
-            type: image
+        - name: nom
+          label: Nom
+          type: string
+        - name: description
+          label: Description
+          type: text
+        - name: url
+          label: Adresse du site (https://…)
+          type: string
+        - name: logo
+          label: Logo (facultatif)
+          type: image
       - name: devenir_titre
-        label: "Encadré « Devenir partenaire » — titre"
+        label: Encadré « Devenir partenaire » — titre
         type: string
       - name: devenir_texte
-        label: "Encadré « Devenir partenaire » — texte"
+        label: Encadré « Devenir partenaire » — texte
         type: text
-
-  # ---------- FINANCEURS ----------
-  - name: financeurs
-    label: Soutiens financiers
-    type: file
-    path: src/_data/financeurs.json
-    format: json
-    fields:
+    - name: financeurs
+      label: Soutiens financiers
+      type: file
+      path: src/_data/financeurs.json
+      format: json
+      fields:
       - name: titre
-        label: "Titre de la section (page Partenaires)"
+        label: Titre de la section (page Partenaires)
         type: string
       - name: texte
         label: Phrase d'introduction
@@ -493,155 +1140,480 @@ content:
         type: object
         list: true
         fields:
-          - { name: nom, label: Nom, type: string }
-          - { name: description, label: Description courte, type: string }
-          - { name: url, label: Adresse du site, type: string }
-          - { name: logo, label: Logo (facultatif), type: image }
-
-  # ---------- ÉQUIPE ----------
-  - name: equipe
-    label: L'équipe
+        - name: nom
+          label: Nom
+          type: string
+        - name: description
+          label: Description courte
+          type: string
+        - name: url
+          label: Adresse du site
+          type: string
+        - name: logo
+          label: Logo (facultatif)
+          type: image
+  - name: contact
+    label: Contact (formulaire, urgence, page Merci)
     type: file
-    path: src/_data/equipe.json
+    path: src/_data/contact.json
     format: json
     fields:
-      - name: titre
-        label: "Titre de la section (page L'association)"
+    - name: coordonnees_titre
+      label: Titre des coordonnées
+      type: string
+    - name: urgence_titre
+      label: Encadré urgence — titre
+      type: string
+    - name: urgence_texte
+      label: Encadré urgence — texte (vérifier les numéros et leurs liens d'appel avant de modifier)
+      type: rich-text
+      options:
+        format: markdown
+    - name: formulaire
+      label: Formulaire et mention données personnelles
+      description: La case à cocher et la mention sont exigées par le RGPD. Si vous changez un prestataire, la durée de conservation ou l'adresse, modifiez aussi la page Mentions légales.
+      type: object
+      fields:
+      - name: label_nom
+        label: Champ nom — intitulé
         type: string
-      - name: bureau_titre
-        label: "Sous-titre du bureau"
+      - name: label_telephone
+        label: Champ téléphone — intitulé
         type: string
-      - name: bureau
-        label: Le bureau
-        type: object
+      - name: label_email
+        label: Champ e-mail — intitulé
+        type: string
+      - name: label_objet
+        label: Liste « Votre demande concerne » — intitulé
+        type: string
+      - name: objets
+        label: Choix proposés dans la liste
+        type: string
         list: true
-        fields:
-          - { name: nom, label: Nom, type: string }
-          - { name: fonction, label: Fonction, type: string }
-          - { name: profession, label: Profession, type: string }
-      - name: ca_titre
-        label: "Sous-titre du conseil d'administration"
+      - name: label_message
+        label: Champ message — intitulé
         type: string
-      - name: ca
-        label: Conseil d'administration
-        type: object
-        list: true
-        fields:
-          - { name: nom, label: Nom, type: string }
-          - { name: fonction, label: Fonction, type: string }
-          - { name: profession, label: Profession, type: string }
-
-  # ---------- VALEURS ----------
-  - name: valeurs
-    label: Valeurs de la charte
-    type: file
-    path: src/_data/valeurs.json
-    format: json
-    fields:
-      - name: titre
-        label: "Titre de la section (page L'association)"
-        type: string
-      - name: chapeau
-        label: "Phrase sous le titre"
+      - name: consentement
+        label: Case à cocher obligatoire (consentement)
         type: text
-      - name: liste
-        label: Valeurs
-        type: object
-        list: true
+      - name: mention
+        label: Mention données personnelles sous le formulaire
+        type: rich-text
+        options:
+          format: markdown
+      - name: bouton
+        label: Bouton d'envoi
+        type: string
+    - name: merci_texte
+      label: Page Merci (après envoi) — texte (le téléphone s'ajoute à la fin)
+      type: text
+  - name: page-mentions-legales
+    label: Mentions légales et données personnelles
+    type: file
+    path: src/pages/mentions-legales.md
+    fields:
+    - name: title
+      label: Titre de la page
+      type: string
+      required: true
+    - name: menu
+      label: Afficher dans le menu principal (pour une nouvelle page)
+      type: boolean
+      default: false
+    - name: titre_menu
+      label: Titre court dans le menu (facultatif)
+      type: string
+    - name: intro
+      label: Phrase d'introduction (bandeau du haut)
+      type: text
+    - name: seo_titre
+      label: Google — titre de la page (facultatif, 60 caractères environ)
+      description: Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page.
+      type: string
+      options:
+        maxlength: 80
+    - name: seo_description
+      label: Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)
+      description: Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages.
+      type: text
+      options:
+        maxlength: 170
+    - name: image
+      label: Image du bandeau
+      type: image
+    - name: ordre
+      label: Position (dans la liste et dans le menu, ex. 6)
+      type: number
+    - name: body
+      label: Contenu de la page
+      type: rich-text
+      options:
+        format: markdown
+    - name: sections
+      label: Blocs affichés après le texte (texte, bouton, image, bandeau)
+      type: block
+      list: true
+      blockKey: type
+      description: Les blocs s'affichent dans l'ordre. Un bandeau occupe toute la largeur de la page.
+      blocks:
+      - name: texte
+        label: Texte
         fields:
+        - name: texte
+          label: Texte
+          type: rich-text
+          options:
+            format: markdown
+      - name: bouton
+        label: Bouton
+        fields:
+        - name: texte
+          label: Texte du bouton (ex. Me parler de votre projet)
+          type: string
+        - name: lien
+          label: Lien (ex. /contact/ ou https://…)
+          type: string
+        - name: style
+          label: Style
+          type: select
+          options:
+            values:
+            - Violet
+            - Jaune
+            - Contour
+      - name: image
+        label: Image
+        fields:
+        - name: image
+          label: Image
+          type: image
+        - name: legende
+          label: Légende (facultatif)
+          type: string
+      - name: bandeau
+        label: Bandeau (pleine largeur, fond coloré)
+        fields:
+        - name: fond
+          label: Couleur de fond
+          type: select
+          options:
+            values:
+            - Lavande
+            - Bleu
+            - Blanc
+        - name: titre
+          label: Titre (facultatif)
+          type: string
+        - name: texte
+          label: Texte (facultatif)
+          type: rich-text
+          options:
+            format: markdown
+        - name: colonnes
+          label: Colonnes (facultatif, 1 à 3 cases côte à côte)
+          type: object
+          list: true
+          fields:
           - name: titre
-            label: Valeur
+            label: Titre de la case
             type: string
           - name: texte
-            label: Explication
-            type: text
-
-  # ---------- RÉFÉRENCEMENT DES PAGES FIXES ----------
-  - name: technique
-    label: Réglages techniques (adresse du site, statistiques)
-    type: file
-    path: src/_data/technique.json
-    format: json
+            label: Texte de la case
+            type: rich-text
+            options:
+              format: markdown
+          - name: bouton_texte
+            label: Texte du bouton (facultatif)
+            type: string
+          - name: bouton_lien
+            label: Lien du bouton
+            description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+            type: string
+          - name: bouton_style
+            label: Style du bouton
+            type: select
+            options:
+              values:
+              - Jaune
+              - Contour
+              - Violet
+        - name: bouton_texte
+          label: Bouton sous le bandeau — texte (facultatif)
+          type: string
+        - name: bouton_lien
+          label: Bouton sous le bandeau — lien
+          description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+          type: string
+  - name: nouvelles-pages
+    label: Nouvelles pages (créer une page)
+    type: collection
+    path: src/nouvelles-pages
+    exclude:
+    - nouvelles-pages.11tydata.js
+    view:
+      fields:
+      - title
+      primary: title
+      sort:
+      - ordre
+      default:
+        sort: ordre
+        order: asc
+    filename: '{primary}.md'
+    operations:
+      create: true
+      delete: true
+      rename: false
     fields:
-      - name: url
-        label: Adresse du site (sans / final)
-        description: "À changer quand le nom de domaine sera acheté, ex. https://www.vivresondeuil-poitoucharentes.fr"
-        type: string
-      - name: cloudflare_analytics_token
-        label: Jeton Cloudflare Web Analytics
-        description: "Coller ici le « token » fourni par Cloudflare (ou le code complet, le site extrait le jeton). Laisser vide pour désactiver les statistiques."
-        type: string
-  - name: seo
-    label: Référencement Google (pages fixes)
-    type: file
-    path: src/_data/seo.json
-    format: json
-    fields:
-      - name: accueil
-        label: "Page d'accueil"
-        type: object
+    - name: title
+      label: Titre de la page
+      type: string
+      required: true
+    - name: menu
+      label: Afficher dans le menu principal (pour une nouvelle page)
+      type: boolean
+      default: false
+    - name: titre_menu
+      label: Titre court dans le menu (facultatif)
+      type: string
+    - name: intro
+      label: Phrase d'introduction (bandeau du haut)
+      type: text
+    - name: seo_titre
+      label: Google — titre de la page (facultatif, 60 caractères environ)
+      description: Titre affiché dans les résultats Google et l'onglet du navigateur. Laisser vide pour utiliser le titre de la page.
+      type: string
+      options:
+        maxlength: 80
+    - name: seo_description
+      label: Google — description (recommandé, 1 à 2 phrases, 160 caractères environ)
+      description: Résumé unique de la page, que Google peut afficher sous le titre. Ne pas copier la même description sur plusieurs pages.
+      type: text
+      options:
+        maxlength: 170
+    - name: image
+      label: Image du bandeau
+      type: image
+    - name: ordre
+      label: Position (dans la liste et dans le menu, ex. 6)
+      type: number
+    - name: body
+      label: Contenu de la page
+      type: rich-text
+      options:
+        format: markdown
+    - name: sections
+      label: Blocs affichés après le texte (texte, bouton, image, bandeau)
+      type: block
+      list: true
+      blockKey: type
+      description: Les blocs s'affichent dans l'ordre. Un bandeau occupe toute la largeur de la page.
+      blocks:
+      - name: texte
+        label: Texte
         fields:
-          - name: titre
-            label: Titre pour Google (60 caractères environ)
-            type: string
-          - name: description
-            label: Description pour Google (160 caractères environ)
-            type: text
-      - name: actualites
-        label: "Page Actualités"
-        type: object
+        - name: texte
+          label: Texte
+          type: rich-text
+          options:
+            format: markdown
+      - name: bouton
+        label: Bouton
         fields:
-          - name: titre
-            label: Titre pour Google (60 caractères environ)
-            type: string
-          - name: description
-            label: Description pour Google (160 caractères environ)
-            type: text
-      - name: partenaires
-        label: "Page Partenaires"
-        type: object
+        - name: texte
+          label: Texte du bouton (ex. Me parler de votre projet)
+          type: string
+        - name: lien
+          label: Lien (ex. /contact/ ou https://…)
+          type: string
+        - name: style
+          label: Style
+          type: select
+          options:
+            values:
+            - Violet
+            - Jaune
+            - Contour
+      - name: image
+        label: Image
         fields:
-          - name: titre
-            label: Titre pour Google (60 caractères environ)
-            type: string
-          - name: description
-            label: Description pour Google (160 caractères environ)
-            type: text
-      - name: contact
-        label: "Page Contact"
-        type: object
+        - name: image
+          label: Image
+          type: image
+        - name: legende
+          label: Légende (facultatif)
+          type: string
+      - name: bandeau
+        label: Bandeau (pleine largeur, fond coloré)
         fields:
+        - name: fond
+          label: Couleur de fond
+          type: select
+          options:
+            values:
+            - Lavande
+            - Bleu
+            - Blanc
+        - name: titre
+          label: Titre (facultatif)
+          type: string
+        - name: texte
+          label: Texte (facultatif)
+          type: rich-text
+          options:
+            format: markdown
+        - name: colonnes
+          label: Colonnes (facultatif, 1 à 3 cases côte à côte)
+          type: object
+          list: true
+          fields:
           - name: titre
-            label: Titre pour Google (60 caractères environ)
+            label: Titre de la case
             type: string
-          - name: description
-            label: Description pour Google (160 caractères environ)
-            type: text
-
-  # ---------- COORDONNÉES ----------
+          - name: texte
+            label: Texte de la case
+            type: rich-text
+            options:
+              format: markdown
+          - name: bouton_texte
+            label: Texte du bouton (facultatif)
+            type: string
+          - name: bouton_lien
+            label: Lien du bouton
+            description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+            type: string
+          - name: bouton_style
+            label: Style du bouton
+            type: select
+            options:
+              values:
+              - Jaune
+              - Contour
+              - Violet
+        - name: bouton_texte
+          label: Bouton sous le bandeau — texte (facultatif)
+          type: string
+        - name: bouton_lien
+          label: Bouton sous le bandeau — lien
+          description: 'Une adresse (/contact/ ou https://…), ou un mot-clé : adhesion, don, rappeo, federation.'
+          type: string
+- name: reglages
+  label: Réglages
+  type: group
+  items:
   - name: site
     label: Coordonnées et liens
     type: file
     path: src/_data/site.json
     format: json
     fields:
-      - { name: nom, label: Nom de l'association, type: string }
-      - { name: slogan, label: Slogan (barre du haut), type: string }
-      - { name: description, label: Description pour Google, type: text }
-      - { name: telephone, label: Téléphone, type: string }
-      - { name: email, label: E-mail, type: string }
-      - { name: adresse, label: Adresse postale, type: string }
-      - { name: facebook, label: Page Facebook (adresse complète), type: string }
-      - { name: linkedin, label: Page LinkedIn (adresse complète — laisser vide pour masquer l'icône), type: string }
-      - { name: adhesion_url, label: Lien HelloAsso — adhésion, type: string }
-      - { name: don_url, label: Lien HelloAsso — dons, type: string }
-      - { name: federation_url, label: Site de la Fédération, type: string }
-      - { name: rappeo_url, label: Site de RAPPEO 17, type: string }
-      - name: presentation_pied
-        label: Présentation en pied de page
-        type: rich-text
-        options:
-          format: markdown
-      - { name: rna, label: N° RNA, type: string }
-      - { name: siret, label: SIRET, type: string }
-      - { name: contact_intro, label: Texte d'introduction de la page Contact, type: text }
+    - name: nom
+      label: Nom de l'association
+      type: string
+    - name: slogan
+      label: Slogan (barre du haut)
+      type: string
+    - name: description
+      label: Description pour Google
+      type: text
+    - name: telephone
+      label: Téléphone
+      type: string
+    - name: email
+      label: E-mail
+      type: string
+    - name: adresse
+      label: Adresse postale
+      type: string
+    - name: facebook
+      label: Page Facebook (adresse complète)
+      type: string
+    - name: linkedin
+      label: Page LinkedIn (adresse complète — laisser vide pour masquer l'icône)
+      type: string
+    - name: adhesion_url
+      label: Lien HelloAsso — adhésion
+      type: string
+    - name: don_url
+      label: Lien HelloAsso — dons
+      type: string
+    - name: federation_url
+      label: Site de la Fédération
+      type: string
+    - name: rappeo_url
+      label: Site de RAPPEO 17
+      type: string
+    - name: presentation_pied
+      label: Présentation en pied de page
+      type: rich-text
+      options:
+        format: markdown
+    - name: rna
+      label: N° RNA
+      type: string
+    - name: siret
+      label: SIRET
+      type: string
+    - name: contact_intro
+      label: Texte d'introduction de la page Contact
+      type: text
+  - name: seo
+    label: Référencement Google (pages fixes)
+    type: file
+    path: src/_data/seo.json
+    format: json
+    fields:
+    - name: accueil
+      label: Page d'accueil
+      type: object
+      fields:
+      - name: titre
+        label: Titre pour Google (60 caractères environ)
+        type: string
+      - name: description
+        label: Description pour Google (160 caractères environ)
+        type: text
+    - name: actualites
+      label: Page Actualités
+      type: object
+      fields:
+      - name: titre
+        label: Titre pour Google (60 caractères environ)
+        type: string
+      - name: description
+        label: Description pour Google (160 caractères environ)
+        type: text
+    - name: partenaires
+      label: Page Partenaires
+      type: object
+      fields:
+      - name: titre
+        label: Titre pour Google (60 caractères environ)
+        type: string
+      - name: description
+        label: Description pour Google (160 caractères environ)
+        type: text
+    - name: contact
+      label: Page Contact
+      type: object
+      fields:
+      - name: titre
+        label: Titre pour Google (60 caractères environ)
+        type: string
+      - name: description
+        label: Description pour Google (160 caractères environ)
+        type: text
+  - name: technique
+    label: Réglages techniques (adresse du site, statistiques)
+    type: file
+    path: src/_data/technique.json
+    format: json
+    fields:
+    - name: url
+      label: Adresse du site (sans / final)
+      description: À changer quand le nom de domaine sera acheté, ex. https://www.vivresondeuil-poitoucharentes.fr
+      type: string
+    - name: cloudflare_analytics_token
+      label: Jeton Cloudflare Web Analytics
+      description: Coller ici le « token » fourni par Cloudflare (ou le code complet, le site extrait le jeton). Laisser vide pour désactiver les statistiques.
+      type: string

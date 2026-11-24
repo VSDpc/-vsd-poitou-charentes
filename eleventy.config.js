@@ -18,7 +18,7 @@ export default function (eleventyConfig) {
   // Pages ajoutées depuis le back-office et cochées « Afficher dans le menu »
   eleventyConfig.addCollection("pagesMenu", (api) =>
     api
-      .getFilteredByGlob("src/pages/*.md")
+      .getFilteredByGlob(["src/pages/*.md", "src/nouvelles-pages/*.md"])
       .filter((p) => p.data.menu)
       .sort((a, b) => (a.data.ordre || 50) - (b.data.ordre || 50))
   );
@@ -51,8 +51,8 @@ export default function (eleventyConfig) {
     author: { "@type": "Organization", name: site.nom, url: url + "/" },
     publisher: { "@type": "Organization", name: site.nom, logo: { "@type": "ImageObject", url: url + "/media/logo-vsdpc.jpg" } }
   }));
-  // Regroupe les encadrés qui se suivent pour les afficher côte à côte
-  eleventyConfig.addFilter("grouperEncadres", (blocs) => { const out = []; for (const b of blocs || []) { if (b && b.type === "encadre") { const last = out[out.length - 1]; if (last && last.type === "groupe-encadres" && last.items.length < 3) last.items.push(b); else out.push({ type: "groupe-encadres", items: [b] }); } else out.push(b); } return out; });
+  // Découpe les blocs d'une page : suites de blocs simples / bandeaux pleine largeur
+  eleventyConfig.addFilter("segmenterBlocs", (blocs) => { const out = []; for (const b of blocs || []) { if (!b) continue; if (b.type === "bandeau") out.push({ type: "bandeau", bloc: b }); else { const last = out[out.length - 1]; if (last && last.type === "blocs") last.items.push(b); else out.push({ type: "blocs", items: [b] }); } } return out; });
   // Accepte le jeton seul ou le code complet collé depuis Cloudflare
   eleventyConfig.addFilter("cfToken", (s) => { const v = String(s || ""); const m = v.match(/"token"\s*:\s*"([a-zA-Z0-9]+)"/) || v.trim().match(/^([a-zA-Z0-9]+)$/); return m ? m[1] : ""; });
   eleventyConfig.addFilter("tel", (s) => "tel:" + String(s || "").replace(/[^0-9+]/g, ""));

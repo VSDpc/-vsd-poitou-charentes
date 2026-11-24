@@ -1,0 +1,30 @@
+{#- Bandeau : variables b (le bloc) et boite (true = version encadrée dans une actualité) -#}
+{%- set fond = "bleu" if b.fond == "Bleu" else ("blanc" if b.fond == "Blanc" else "lavande") -%}
+{%- macro lienBloc(l) -%}
+{%- set l = (l or "") | trim -%}
+{%- if l == "adhesion" %}{{ site.adhesion_url }}{% elif l == "don" %}{{ site.don_url }}{% elif l == "rappeo" %}{{ site.rappeo_url }}{% elif l == "federation" %}{{ site.federation_url }}{% else %}{{ l }}{% endif -%}
+{%- endmacro -%}
+{%- set nb = b.colonnes.length if b.colonnes else 0 -%}
+<{{ "div" if boite else "section" }} class="{{ 'bandeau-boite' if boite else 'section' }} bandeau-bloc bandeau-bloc--{{ fond }}">
+  <div class="{{ '' if boite else 'wrap' }}{% if not nb %} centre{% endif %}">
+    {%- if b.titre %}<h2 class="titre{% if nb %} centre{% endif %}">{{ b.titre }}</h2>{% endif %}
+    {%- if b.texte %}<div class="chapeau{% if nb %} centre{% endif %} bandeau-bloc__texte">{{ b.texte | md | safe }}</div>{% endif %}
+    {%- if nb %}
+    <div class="colonnes colonnes--{{ nb if nb <= 3 else 3 }}">
+      {%- for c in b.colonnes %}
+      <div class="colonne">
+        {% if c.titre %}<h{{ 3 if b.titre else 2 }}>{{ c.titre }}</h{{ 3 if b.titre else 2 }}>{% endif %}
+        {% if c.texte %}{{ c.texte | md | safe }}{% endif %}
+        {%- if c.bouton_texte and c.bouton_lien %}
+        {%- if c.bouton_style == "Contour" %}{% set cls = "btn btn--blanc" if fond == "bleu" else "btn btn--contour" %}{% elif c.bouton_style == "Violet" %}{% set cls = "btn" %}{% else %}{% set cls = "btn btn--jaune" %}{% endif %}
+        <a class="{{ cls }}" href="{{ lienBloc(c.bouton_lien) }}">{{ c.bouton_texte }}</a>
+        {%- endif %}
+      </div>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+    {%- if b.bouton_texte and b.bouton_lien %}
+    <p class="centre bandeau-bloc__bouton"><a class="btn{% if fond == 'bleu' %} btn--jaune{% endif %}" href="{{ lienBloc(b.bouton_lien) }}">{{ b.bouton_texte }}</a></p>
+    {%- endif %}
+  </div>
+</{{ "div" if boite else "section" }}>

@@ -9,12 +9,12 @@ seo_description: Réseau de psychologues pour les personnes endeuillées et les
 image: /media/cine-debat.webp
 ordre: 3
 sections:
-  - type: encadre
+  - type: bandeau
+    fond: "Lavande"
     titre: "Contacter RAPPEO 17"
     texte: "Le réseau dispose de son propre site et d'un formulaire de contact."
     bouton_texte: "Aller sur le site de RAPPEO 17"
     bouton_lien: "rappeo"
-    fond: "Lavande"
 ---
 ## Un réseau de psychologues sur tout le département
 
