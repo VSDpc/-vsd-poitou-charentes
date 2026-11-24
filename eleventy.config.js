@@ -51,6 +51,8 @@ export default function (eleventyConfig) {
     author: { "@type": "Organization", name: site.nom, url: url + "/" },
     publisher: { "@type": "Organization", name: site.nom, logo: { "@type": "ImageObject", url: url + "/media/logo-vsdpc.jpg" } }
   }));
+  // Accepte le jeton seul ou le code complet collé depuis Cloudflare
+  eleventyConfig.addFilter("cfToken", (s) => { const v = String(s || ""); const m = v.match(/"token"\s*:\s*"([a-zA-Z0-9]+)"/) || v.trim().match(/^([a-zA-Z0-9]+)$/); return m ? m[1] : ""; });
   eleventyConfig.addFilter("tel", (s) => "tel:" + String(s || "").replace(/[^0-9+]/g, ""));
 
   // Permet d'écrire du markdown dans les champs texte (Pages CMS)

@@ -12,7 +12,7 @@ layout: base.njk
 {% if slug == "se-faire-accompagner" %}
 <section class="section">
   <div class="wrap">
-    <h2 class="titre">Nos propositions d'accompagnement</h2>
+    <h2 class="titre">{{ textes.accompagner.propositions_titre }}</h2>
     <div class="grille grille--3">
       {% for a in actions %}{% set icone = a.icone %}
       <article class="carte carte--action">
@@ -39,7 +39,7 @@ layout: base.njk
 {% if slug == "se-faire-accompagner" %}
 <section class="section" id="groupes">
   <div class="wrap">
-    <h2 class="titre">Nos groupes d'entraide</h2>
+    <h2 class="titre">{{ textes.accompagner.groupes_titre }}</h2>
     <div class="grille grille--3">
       {% for g in groupes %}
       <article class="carte carte--groupe{% if g.statut == 'projet' %} carte--projet{% endif %}">
@@ -59,8 +59,8 @@ layout: base.njk
 {% if slug == "association" %}
 <section class="section section--lavande">
   <div class="wrap">
-    <h2 class="titre">Les valeurs de notre charte</h2>
-    <p class="chapeau">En tant que membre de la Fédération Européenne Vivre Son Deuil, notre association inscrit son action dans une charte commune.</p>
+    <h2 class="titre">{{ textes.association.valeurs_titre }}</h2>
+    <p class="chapeau">{{ textes.association.valeurs_chapeau }}</p>
     <ul class="valeurs">
       {% for v in valeurs %}
       <li>{% include "partials/icone-check.njk" %}<div><strong>{{ v.titre }}</strong><span>{{ v.texte }}</span></div></li>
@@ -70,12 +70,12 @@ layout: base.njk
 </section>
 <section class="section">
   <div class="wrap">
-    <h2 class="titre">L'équipe</h2>
-    <h3 class="sous-titre">Le bureau</h3>
+    <h2 class="titre">{{ textes.association.equipe_titre }}</h2>
+    <h3 class="sous-titre">{{ textes.association.bureau_titre }}</h3>
     <div class="grille grille--3 equipe">
       {% for p in equipe.bureau %}<div class="membre"><strong>{{ p.nom }}</strong><span class="membre__fonction">{{ p.fonction }}</span><span class="membre__metier">{{ p.profession }}</span></div>{% endfor %}
     </div>
-    <h3 class="sous-titre">Le conseil d'administration</h3>
+    <h3 class="sous-titre">{{ textes.association.ca_titre }}</h3>
     <div class="grille grille--4 equipe">
       {% for p in equipe.ca %}<div class="membre"><strong>{{ p.nom }}</strong><span class="membre__fonction">{{ p.fonction }}</span><span class="membre__metier">{{ p.profession }}</span></div>{% endfor %}
     </div>
@@ -95,7 +95,7 @@ layout: base.njk
       </article>
       {% endfor %}
     </div>
-    <p class="centre"><a class="btn" href="/nous-soutenir/">Soutenir un projet</a></p>
+    <p class="centre"><a class="btn" href="/nous-soutenir/">{{ textes.projets.bouton }}</a></p>
   </div>
 </section>
 {% endif %}
@@ -103,9 +103,9 @@ layout: base.njk
 {% if slug == "rappeo-17" %}
 <section class="section section--lavande">
   <div class="wrap centre">
-    <h2 class="titre">Contacter RAPPEO 17</h2>
-    <p class="chapeau">Le réseau dispose de son propre site, avec la liste des psychologues et un formulaire de contact.</p>
-    <p><a class="btn" href="{{ site.rappeo_url }}">Aller sur le site de RAPPEO 17</a></p>
+    <h2 class="titre">{{ textes.rappeo.contact_titre }}</h2>
+    <p class="chapeau">{{ textes.rappeo.contact_texte }}</p>
+    <p><a class="btn" href="{{ site.rappeo_url }}">{{ textes.rappeo.contact_bouton }}</a></p>
   </div>
 </section>
 {% endif %}
@@ -113,9 +113,9 @@ layout: base.njk
 {% if slug == "nous-soutenir" %}
 <section class="section section--marine">
   <div class="wrap soutien">
-    <div><h2>Adhérer</h2><p>Rejoignez l'association pour l'année en cours.</p><a class="btn btn--jaune" href="{{ site.adhesion_url }}">J'adhère sur HelloAsso</a></div>
-    <div><h2>Faire un don</h2><p>Paiement sécurisé, reçu fiscal envoyé automatiquement.</p><a class="btn btn--jaune" href="{{ site.don_url }}">Je fais un don</a></div>
-    <div><h2>Mécénat</h2><p>Échangeons sur votre projet de soutien.</p><a class="btn btn--blanc" href="/contact/">Nous contacter</a></div>
+    {% set s = textes.soutenir %}<div><h2>{{ s.adherer_titre }}</h2><p>{{ s.adherer_texte }}</p><a class="btn btn--jaune" href="{{ site.adhesion_url }}">{{ s.adherer_bouton }}</a></div>
+    <div><h2>{{ s.don_titre }}</h2><p>{{ s.don_texte }}</p><a class="btn btn--jaune" href="{{ site.don_url }}">{{ s.don_bouton }}</a></div>
+    <div><h2>{{ s.mecenat_titre }}</h2><p>{{ s.mecenat_texte }}</p><a class="btn btn--blanc" href="/contact/">{{ s.mecenat_bouton }}</a></div>
   </div>
 </section>
 {% endif %}

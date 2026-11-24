@@ -37,8 +37,8 @@ permalink: /
 
 <section class="section section--lavande">
   <div class="wrap">
-    <h2 class="titre centre">Nos actions en Poitou-Charentes</h2>
-    <p class="chapeau centre">Gratuites, confidentielles, assurées par des bénévoles formés à l'écoute, en lien avec des professionnels.</p>
+    <h2 class="titre centre">{{ accueil.actions_titre }}</h2>
+    <p class="chapeau centre">{{ accueil.actions_chapeau }}</p>
     <div class="grille grille--3">
       {% for a in actions %}{% set icone = a.icone %}
       <article class="carte carte--action">
@@ -55,7 +55,7 @@ permalink: /
 <section class="section">
   <div class="wrap">
     <div class="entete-section">
-      <h2 class="titre">Les actualités de l'association</h2>
+      <h2 class="titre">{{ accueil.actus_titre }}</h2>
       <a class="lien-fort" href="/actualites/">Toutes les actualités →</a>
     </div>
     <div class="grille grille--3">
@@ -67,15 +67,15 @@ permalink: /
 <section class="section section--marine">
   <div class="wrap rappeo">
     <div>
-      <p class="surtitre">En Charente-Maritime</p>
-      <h2>RAPPEO 17, un réseau de psychologues pour les personnes endeuillées et les orphelins</h2>
-      <p>Coordonné par notre association, le réseau propose un soutien psychologique individuel ou familial, en partenariat avec la CPAM, la CAF et la MSA de Charente-Maritime.</p>
+      <p class="surtitre">{{ accueil.rappeo_surtitre }}</p>
+      <h2>{{ accueil.rappeo_titre }}</h2>
+      <p>{{ accueil.rappeo_texte }}</p>
       <div class="hero__cta">
         <a class="btn btn--jaune" href="/rappeo-17/">En savoir plus</a>
         <a class="btn btn--blanc" href="{{ site.rappeo_url }}">Site de RAPPEO 17</a>
       </div>
     </div>
-    <img src="/media/affiche-congres-2024.webp" alt="Affiche du congrès « Deuils en famille ; orphelins d'un parent », La Rochelle, décembre 2024" loading="lazy">
+    {% if accueil.rappeo_image %}<img src="{{ accueil.rappeo_image }}" alt="{{ accueil.rappeo_image_alt }}" loading="lazy">{% endif %}
   </div>
 </section>
 
@@ -90,11 +90,11 @@ permalink: /
 
 <section class="section section--lavande">
   <div class="wrap">
-    <h2 class="titre centre">Nos partenaires</h2>
+    <h2 class="titre centre">{{ accueil.partenaires_titre }}</h2>
     <ul class="logos">
       {% for p in partenaires %}<li class="{% if p.logo %}logos__img{% else %}logos__txt{% endif %}">{% if p.url %}<a href="{{ p.url }}" title="{{ p.nom }}">{% endif %}{% if p.logo %}<img loading="lazy" decoding="async" src="{{ p.logo }}" alt="{{ p.nom }}">{% else %}{{ p.nom }}{% endif %}{% if p.url %}</a>{% endif %}</li>{% endfor %}
     </ul>
-    <p class="soutiens">Avec le soutien financier de</p>
+    <p class="soutiens">{{ accueil.financeurs_phrase }}</p>
     <ul class="logos logos--financeurs">
       {% for f in financeurs.liste %}<li class="{% if f.logo %}logos__img{% else %}logos__txt{% endif %}">{% if f.url %}<a href="{{ f.url }}" title="{{ f.nom }}">{% endif %}{% if f.logo %}<img loading="lazy" decoding="async" src="{{ f.logo }}" alt="{{ f.nom }}">{% else %}{{ f.nom }}{% endif %}{% if f.url %}</a>{% endif %}</li>{% endfor %}
     </ul>

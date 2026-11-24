@@ -82,7 +82,7 @@
     <div class="wrap footer__grid">
       <div>
         <img loading="lazy" class="footer__logo" src="/media/logo-vsdpc.jpg" alt="" width="140" height="88">
-        <p>Association reconnue d'intérêt général, membre de la <a href="{{ site.federation_url }}">Fédération Européenne Vivre Son Deuil</a>.</p>
+        <p>{{ textes.pied.presentation | mdInline | safe }}</p>
       </div>
       <div>
         <h2>Nous contacter</h2>
@@ -113,6 +113,6 @@
     </div>
   </footer>
   <script src="/js/main.js" defer></script>
-  {% if technique.cloudflare_analytics_token %}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ technique.cloudflare_analytics_token }}"}'></script>{% endif %}
+  {% set cft = technique.cloudflare_analytics_token | cfToken %}{% if cft %}<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ cft }}"}'></script>{% endif %}
 </body>
 </html>
