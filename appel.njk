@@ -1,0 +1,10 @@
+<div class="appel">
+  <div>
+    <h3>{{ groupes.appel_titre }}</h3>
+    <p>{{ groupes.appel_texte }}</p>
+  </div>
+  <div class="appel__actions">
+    <a class="btn" href="{{ site.telephone | tel }}">{% include "partials/icone-tel.njk" %} {{ site.telephone }}</a>
+    <a class="btn btn--contour" href="/contact/">Écrire à l'association</a>
+  </div>
+</div>

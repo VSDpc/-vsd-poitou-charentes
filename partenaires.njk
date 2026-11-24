@@ -1,0 +1,47 @@
+---
+layout: base.njk
+seoKey: partenaires
+title: Nos partenaires
+permalink: /partenaires/
+---
+<section class="bandeau bandeau--simple">
+  <div class="wrap">
+    <h1>{{ title }}</h1>
+    <p class="bandeau__intro">{{ partenaires.intro }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap grille grille--2">
+    {% for p in partenaires.liste %}
+    <article class="carte partenaire">
+      <div class="partenaire__logo">{% if p.logo %}<img loading="lazy" decoding="async" src="{{ p.logo }}" alt="Logo {{ p.nom }}">{% else %}<span>{{ p.nom | truncate(14, true, "") }}</span>{% endif %}</div>
+      <div>
+        <h2>{% if p.url %}<a class="partenaire__nom" href="{{ p.url }}">{{ p.nom }}</a>{% else %}{{ p.nom }}{% endif %}</h2>
+        <p>{{ p.description }}</p>
+        {% if p.url %}<a class="lien-fort" href="{{ p.url }}">Visiter le site de {{ p.nom }} →</a>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<section class="section section--lavande">
+  <div class="wrap">
+    <h2 class="titre centre">{{ financeurs.titre }}</h2>
+    <p class="chapeau centre">{{ financeurs.texte }}</p>
+    <div class="grille grille--3 financeurs">
+      {% for f in financeurs.liste %}
+      <a class="financeur"{% if f.url %} href="{{ f.url }}"{% endif %}>
+        {% if f.logo %}<img loading="lazy" decoding="async" src="{{ f.logo }}" alt="{{ f.nom }}">{% else %}<strong>{{ f.nom }}</strong>{% endif %}
+        {% if f.description %}<span>{{ f.description }}</span>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap centre">
+    <h2 class="titre">{{ partenaires.devenir_titre }}</h2>
+    <p class="chapeau centre">{{ partenaires.devenir_texte }}</p>
+    <p class="hero__cta" style="justify-content:center"><a class="btn" href="/contact/">Nous contacter</a> <a class="btn btn--contour" href="/nous-soutenir/">Nous soutenir</a></p>
+  </div>
+</section>
