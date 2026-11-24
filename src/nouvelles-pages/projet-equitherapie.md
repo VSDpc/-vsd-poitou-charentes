@@ -4,3 +4,4 @@ menu: false
 ---
 [test](partenaire)
 
+Ceci est un [test](projet)
