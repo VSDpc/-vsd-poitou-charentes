@@ -17,7 +17,7 @@
   },
   "rappeo": {
     "contact_titre": "Contacter RAPPEO 17",
-    "contact_texte": "Le réseau dispose de son propre site, avec la liste des psychologues et un formulaire de contact.",
+    "contact_texte": "Le réseau dispose de son propre site et d'un formulaire de contact.",
     "contact_bouton": "Aller sur le site de RAPPEO 17"
   },
   "soutenir": {
@@ -42,12 +42,6 @@
     "urgence_titre": "Besoin d'aide immédiate ?",
     "urgence_texte": "Notre association n'est pas un service d'urgence. Si vous êtes en détresse ou pensez au suicide, appelez le **[3114](tel:3114)** (24 h/24, gratuit) ou **[le 15](tel:15)**.\n\nSOS Amitié vous écoute aussi jour et nuit au [09 72 39 40 50](tel:0972394050)."
   },
-  "merci": {
-    "texte": "Un membre de l'association vous répondra dans les meilleurs délais. Si votre demande est urgente, vous pouvez aussi nous appeler au"
-  },
-  "pied": {
-    "presentation": "Association reconnue d'intérêt général, membre de la [Fédération Européenne Vivre Son Deuil](https://www.vivre-son-deuil.com/)."
-  },
   "formulaire": {
     "label_nom": "Nom et prénom",
     "label_telephone": "Téléphone",
@@ -64,7 +58,13 @@
     ],
     "label_message": "Votre message",
     "consentement": "J'accepte que l'association Vivre Son Deuil Poitou-Charentes utilise ces informations, y compris celles touchant à mon deuil ou à ma santé, uniquement pour répondre à ma demande.",
-    "mention": "Vos données sont lues seulement par les bénévoles chargés de vous répondre, transmises via nos prestataires Web3Forms et Proton Mail, puis supprimées au plus tard un an après notre dernier échange. Ne confiez que ce qui est utile pour vous recontacter. Vous pouvez accéder à vos données, les rectifier, les faire effacer ou retirer votre accord en écrivant à vivresondeuil.pc@laposte.net. En savoir plus : [protection des données](/mentions-legales/#protection-des-donnees-personnelles).",
+    "mention": "Vos données sont lues seulement par les bénévoles chargés de vous répondre, transmises via nos prestataires Web3Forms et Proton Mail, puis supprimées au plus tard un an après notre dernier échange. Ne confiez que ce qui est utile pour vous recontacter. Vous pouvez accéder à vos données, les rectifier, les faire effacer ou retirer votre accord en écrivant à [vivresondeuil.pc@laposte.net](mailto:vivresondeuil.pc@laposte.net). En savoir plus : [protection des données](/mentions-legales/#protection-des-donnees-personnelles).",
     "bouton": "Envoyer le message"
+  },
+  "merci": {
+    "texte": "Un membre de l'association vous répondra dans les meilleurs délais. Si votre demande est urgente, vous pouvez aussi nous appeler au"
+  },
+  "pied": {
+    "presentation": "Association reconnue d'intérêt général, membre de la [Fédération Européenne Vivre Son Deuil](https://www.vivre-son-deuil.com/)."
   }
 }
